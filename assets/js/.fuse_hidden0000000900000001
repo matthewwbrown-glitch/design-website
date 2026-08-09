@@ -1,0 +1,110 @@
+// Mobile nav toggle
+document.addEventListener('DOMContentLoaded', function () {
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.main-nav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});
+
+// Case study image carousels (fade transition, autoplay + manual controls)
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.carousel').forEach(function (carousel) {
+    var slides = Array.prototype.slice.call(carousel.querySelectorAll('.carousel-slide'));
+    var dotsWrap = carousel.querySelector('.carousel-dots');
+    if (slides.length === 0) return;
+
+    var dots = slides.map(function (_, i) {
+      var dot = document.createElement('button');
+      dot.className = 'carousel-dot';
+      dot.setAttribute('aria-label', 'Go to image ' + (i + 1));
+      dot.addEventListener('click', function () {
+        show(i);
+        resetTimer();
+      });
+      if (dotsWrap) dotsWrap.appendChild(dot);
+      return dot;
+    });
+
+    var current = 0;
+    var timer;
+
+    function show(index) {
+      slides[current].classList.remove('is-active');
+      if (dots[current]) dots[current].classList.remove('is-active');
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add('is-active');
+      if (dots[current]) dots[current].classList.add('is-active');
+    }
+
+    function next() { show(current + 1); }
+    function prev() { show(current - 1); }
+
+    function resetTimer() {
+      clearInterval(timer);
+      if (slides.length > 1) timer = setInterval(next, 6000);
+    }
+
+    var prevBtn = carousel.querySelector('.carousel-arrow--prev');
+    var nextBtn = carousel.querySelector('.carousel-arrow--next');
+    if (prevBtn) prevBtn.addEventListener('click', function () { prev(); resetTimer(); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { next(); resetTimer(); });
+
+    if (slides.length <= 1) {
+      if (prevBtn) prevBtn.style.display = 'none';
+      if (nextBtn) nextBtn.style.display = 'none';
+    }
+
+    show(0);
+    resetTimer();
+
+    carousel.addEventListener('mouseenter', function () { clearInterval(timer); });
+    carousel.addEventListener('mouseleave', resetTimer);
+  });
+});
+
+// Scroll-reveal: fade+rise content into view as the user scrolls.
+// Respects prefers-reduced-motion and degrades gracefully with no JS /
+// no IntersectionObserver support (content simply stays fully visible).
+document.addEventListener('DOMContentLoaded', function () {
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+  var selector = [
+    '.hero h1',
+    '.hero p.tagline',
+    '.work-grid .work-card',
+    '.case-study-header > *',
+    '.case-study-body > *',
+    '.carousel',
+    '.gallery-grid figure',
+    '.about-layout > div > h1',
+    '.about-layout > div > p',
+    '.about-layout h4',
+    '.quote-block',
+    '.values-grid > div',
+    '.timeline-item',
+    '.brand-list',
+    'section.section-heading > h2'
+  ].join(', ');
+
+  var targets = Array.prototype.slice.call(document.querySelectorAll(selector));
+  if (!targets.length) return;
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+  targets.forEach(function (el, i) {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (Math.min(i % 6, 5) * 60) + 'ms';
+    observer.observe(el);
+  });
+});

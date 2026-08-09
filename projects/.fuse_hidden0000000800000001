@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workflow Designer — Matthew Brown</title>
+  <meta name="description" content="Case study: designing a drag-and-drop, browser-based workflow automation tool.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="site-logo"><a href="../index.html">Matthew Brown</a></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../index.html" aria-current="page">Product Design</a></li>
+          <li><a href="../visual-design.html">Visual Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Product Design</a>
+
+    <div class="case-study-header">
+      <p class="meta">Product Design &middot; Launched November 2016</p>
+      <h1>The Workflow Designer</h1>
+      <p>The workflow designer is the heart of designing a workflow. Drag, drop and you're done. Anyone can automate processes in minutes using an intuitive, easy-to-use, browser-based, drag-and-drop workflow designer. I was given the task of bringing the designer to its next chapter in the cloud.</p>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel-viewport">
+        
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/designer-july-2015.png" alt="Workflow Designer — designer july 2015" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-1.jpeg" alt="Workflow Designer — image asset 1" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-1.png" alt="Workflow Designer — image asset 1" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-2.jpeg" alt="Workflow Designer — image asset 2" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-2.png" alt="Workflow Designer — image asset 2" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-3.jpeg" alt="Workflow Designer — image asset 3" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-3.png" alt="Workflow Designer — image asset 3" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-4.jpeg" alt="Workflow Designer — image asset 4" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-4.png" alt="Workflow Designer — image asset 4" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/image-asset-5.png" alt="Workflow Designer — image asset 5" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/persona-sheet.jpg" alt="Workflow Designer — persona sheet" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/prototype2.gif" alt="Workflow Designer — prototype2" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/results.png" alt="Workflow Designer — results" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/screen-shot-2016-09-09-at-6-43-16-pm.png" alt="Workflow Designer — screen shot 2016 09 09 at 6 43 16 pm" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/screen-shot-2016-11-30-at-11-36-04-pm.png" alt="Workflow Designer — screen shot 2016 11 30 at 11 36 04 pm" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/screen-shot-2016-11-30-at-113604-pm.png" alt="Workflow Designer — screen shot 2016 11 30 at 113604 pm" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/workflow-designer/sketches.jpg" alt="Workflow Designer — sketches" loading="lazy"></div>
+      
+      </div>
+      <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous image">&larr;</button>
+      <button class="carousel-arrow carousel-arrow--next" aria-label="Next image">&rarr;</button>
+      <div class="carousel-dots"></div>
+    </div>
+
+    <div class="case-study-body">
+      <h4>Sketches and prototyping</h4>
+      <p>Early concept sketches were created along with a prototype in Axure that was presented to the team. This helped determine which features were in scope as well as making sure the team was aligned to our business goals. These were kept at low fidelity so changes could be applied quickly.</p>
+
+      <h4>Research</h4>
+      <p>We tested our early concepts against our existing products by using product reaction cards. We wanted to validate that end users understood how to interact with the updated interface. Qualitative user testing allowed us to understand how users might behave within the system.</p>
+
+      <h4>User interface validation</h4>
+      <p>Components were sketched out in what we called our 'user interface validation document'.</p>
+
+      <h4>Hi-fidelity design and spec sheets</h4>
+      <p>New design for workflow actions featuring the notification flag and action menu. Specification sheet for the new Workflow action design.</p>
+
+      <h4>Workflow Designer</h4>
+      <p>The workflow designer launched in November 2016 and was well received by our users and stakeholders.</p>
+
+      <blockquote>"Oh my god, this is amazing, it would make my job so much easier"</blockquote>
+      <blockquote>"The designer seems like something we could use rather than outsource to developers / third party suppliers to help us"</blockquote>
+    </div>
+
+    <div class="case-study-gallery">
+      <figure>
+        <img src="../assets/images/workflow-designer/Screen-Shot-2016-11-30-at-113604-pm.png" alt="Workflow Designer interface showing the new action design">
+        <figcaption>Hi-fidelity design for the new workflow action, featuring the notification flag and action menu.</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Matthew Brown. <a href="https://www.linkedin.com/pub/matthew-brown/22/430/207">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

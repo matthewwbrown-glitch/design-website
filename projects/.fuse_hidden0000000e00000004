@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mobile Forms — Matthew Brown</title>
+  <meta name="description" content="Case study: usability improvements to mobile form design.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="site-logo"><a href="../index.html">Matthew Brown</a></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../index.html" aria-current="page">Product Design</a></li>
+          <li><a href="../visual-design.html">Visual Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Product Design</a>
+
+    <div class="case-study-header">
+      <p class="meta">Product Design</p>
+      <h1>Mobile Forms</h1>
+      <p>Basic improvements to mobile forms, with the intention of a larger overhaul of UX/UI work to follow.</p>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel-viewport">
+        
+        <div class="carousel-slide"><img src="../assets/images/mobile-form-design/after.png" alt="Mobile Forms — after" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/mobile-form-design/before.png" alt="Mobile Forms — before" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/mobile-form-design/before.svg" alt="Mobile Forms — before" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/mobile-form-design/bitmap.png" alt="Mobile Forms — bitmap" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/mobile-form-design/iphone-forms-final.png" alt="Mobile Forms — iphone forms final" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/mobile-form-design/preview.png" alt="Mobile Forms — preview" loading="lazy"></div>
+      
+      </div>
+      <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous image">&larr;</button>
+      <button class="carousel-arrow carousel-arrow--next" aria-label="Next image">&rarr;</button>
+      <div class="carousel-dots"></div>
+    </div>
+
+    <div class="case-study-body">
+      <h4>Mobile form research</h4>
+      <p>Researching best practice form design.</p>
+
+      <h4>Collaborative sketch session</h4>
+      <p>A team sketch up session was conducted where we took a deep dive into the current form experience noting any usability issues. Suggested improvements were documented and prioritised. These were discussed with the development team in terms of what was possible for the next release.</p>
+
+      <h4>Design approach</h4>
+      <p>Annotated specs were provided to the development team. We looked at padding, typography and tested designs for legibility.</p>
+
+      <h4>Final design and assets</h4>
+      <p>After approving the design we compiled a list of assets for the new form for delivery to the development team.</p>
+    </div>
+
+    <div class="case-study-gallery">
+      <figure>
+        <img src="../assets/images/mobile-form-design/Preview.png" alt="Mobile form design preview">
+        <figcaption>Mobile form &mdash; final design preview.</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Matthew Brown. <a href="https://www.linkedin.com/pub/matthew-brown/22/430/207">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

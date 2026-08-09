@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Matthew Brown — Product &amp; Visual Designer</title>
+  <meta name="description" content="The online portfolio of Matthew Brown, a Melbourne-born, Seattle-based Product Designer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="site-logo"><a href="index.html"><img src="assets/images/favicon/logo-mark.png" alt="" class="site-logo-mark">Matthew Brown</a></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" aria-current="page">Product Design</a></li>
+          <li><a href="visual-design.html">Visual Design</a></li>
+          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Product Design, from sketch to shipped.</h1>
+        <p class="tagline">A collection of UX &amp; product design work — research, wireframes, prototypes and the occasional hard-won lesson.</p>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="work-grid">
+
+        <a class="work-card" href="projects/workflow-designer.html">
+          <div class="thumb"><img src="assets/images/workflow-designer/Screen-Shot-2016-11-30-at-113604-pm.png" alt="Workflow Designer interface"></div>
+          <div class="card-body">
+            <h3>Workflow Designer</h3>
+            <p class="meta">Drag-and-drop workflow automation</p>
+          </div>
+        </a>
+
+        <a class="work-card" href="projects/customer-search.html">
+          <div class="thumb"><img src="assets/images/customer-search/Customer_Search__Matthew_Brown_Thumbnail.png" alt="Customer Search project thumbnail"></div>
+          <div class="card-body">
+            <h3>Customer Search</h3>
+            <p class="meta">Simplifying cross-system customer lookup</p>
+          </div>
+        </a>
+
+        <a class="work-card" href="projects/hangry-app.html">
+          <div class="thumb"><img src="assets/images/hangry-app/Hangry_Page_01.png" alt="Hangry App concept"></div>
+          <div class="card-body">
+            <h3>Hangry App</h3>
+            <p class="meta">General Assembly UX capstone project</p>
+          </div>
+        </a>
+
+        <a class="work-card" href="projects/mobile-form-design.html">
+          <div class="thumb"><img src="assets/images/mobile-form-design/Preview.png" alt="Mobile form design preview"></div>
+          <div class="card-body">
+            <h3>Mobile Forms</h3>
+            <p class="meta">Mobile form usability improvements</p>
+          </div>
+        </a>
+
+        <a class="work-card" href="projects/super-wealth-tracker.html">
+          <div class="thumb"><img src="assets/images/super-wealth-tracker/SWT---Desktop-HD.png" alt="Super Wealth Tracker desktop design"></div>
+          <div class="card-body">
+            <h3>Super Wealth Tracker</h3>
+            <p class="meta">Fin-tech UX lead, H2 Ventures accelerator</p>
+          </div>
+        </a>
+
+        <a class="work-card" href="projects/loreal.html">
+          <div class="thumb"><img src="assets/images/loreal/LPD0012_PowderRoomFormAPP_Pres-V2_HR_Page_1.png" alt="L'Oréal campaign work"></div>
+          <div class="card-body">
+            <h3>L'Oréal</h3>
+            <p class="meta">Digital campaigns, McCann Worldgroup</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Matthew Brown. <a href="https://www.linkedin.com/pub/matthew-brown/22/430/207">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

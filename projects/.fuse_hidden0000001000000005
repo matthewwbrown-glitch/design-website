@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Super Wealth Tracker — Matthew Brown</title>
+  <meta name="description" content="Case study: UX lead for a fin-tech startup in the H2 Ventures accelerator program.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="site-logo"><a href="../index.html">Matthew Brown</a></div>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="../index.html" aria-current="page">Product Design</a></li>
+          <li><a href="../visual-design.html">Visual Design</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <a class="back-link" href="../index.html">&larr; Back to Product Design</a>
+
+    <div class="case-study-header">
+      <p class="meta">UX Lead &middot; H2 Ventures Accelerator</p>
+      <h1>Super that makes sense</h1>
+      <p>Super Wealth Tracker is an early stage fin-tech startup participating in the H2 Ventures accelerator program. Super Wealth Tracker intends to help people understand their superannuation. My role was the UX lead.</p>
+    </div>
+
+    <div class="carousel">
+      <div class="carousel-viewport">
+        
+        <div class="carousel-slide"><img src="../assets/images/super-wealth-tracker/swt-desktop-hd.png" alt="Super Wealth Tracker — swt desktop hd" loading="lazy"></div>
+      
+      </div>
+      <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous image">&larr;</button>
+      <button class="carousel-arrow carousel-arrow--next" aria-label="Next image">&rarr;</button>
+      <div class="carousel-dots"></div>
+    </div>
+
+    <div class="case-study-body">
+      <h4>Sketches and wireframes</h4>
+      <p><strong>Early sketches</strong> &mdash; Sketches helped the team decide what was required in the initial stages of development.</p>
+      <p><strong>On-boarding concept</strong> &mdash; Website on-boarding sketches.</p>
+      <p><strong>Axure prototype</strong> &mdash; An Axure prototype was developed to understand user interactions and enable testing.</p>
+
+      <h4>User testing</h4>
+      <p>Testing the initial sign up experience, including form submission and online statement upload. One-hour sessions were conducted and captured. Key findings were documented and presented back to the team.</p>
+
+      <h4>Participant surveys</h4>
+      <p><strong>Survey one</strong> &mdash; Background research.</p>
+      <p><strong>Survey two</strong> &mdash; Product first impressions.</p>
+
+      <h4>Brand identity and style guide</h4>
+      <p><em>Details to come.</em></p>
+
+      <h4>Hi-fidelity design</h4>
+      <p>Hi-fidelity designs were created based off Sketch wireframes and sent to the team for approval.</p>
+
+      <h4>Specification sheet</h4>
+      <p>Once designs were approved, a spec sheet was supplied to the developers.</p>
+
+      <h4>Responsive design</h4>
+      <p>It was important everyone in the team understood how the design was going to translate to tablet and mobile.</p>
+
+      <h4>Customer presentation pack</h4>
+      <p>Data overview, super story, investment breakdown.</p>
+    </div>
+
+    <div class="case-study-gallery">
+      <figure>
+        <img src="../assets/images/super-wealth-tracker/SWT---Desktop-HD.png" alt="Super Wealth Tracker desktop design">
+        <figcaption>Super Wealth Tracker &mdash; desktop hi-fidelity design.</figcaption>
+      </figure>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Matthew Brown. <a href="https://www.linkedin.com/pub/matthew-brown/22/430/207">LinkedIn</a></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
