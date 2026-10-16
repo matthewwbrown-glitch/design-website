@@ -777,6 +777,58 @@ section.section-heading h2 {
   }
 }
 
+/* ---------- Visual design: stacked layout (info on top, uncropped images below) ---------- */
+
+.visual-stack-intro {
+  padding: var(--space-lg) 0 0;
+}
+
+.visual-stack-intro .visual-project-info {
+  max-width: 480px;
+}
+
+.visual-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.visual-pair figure {
+  margin: 0;
+  aspect-ratio: 800 / 1055;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--color-bg-alt);
+}
+
+.visual-pair img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 4px;
+}
+
+.visual-spread {
+  margin: var(--space-sm) 0 0;
+}
+
+.visual-spread img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+@media (max-width: 720px) {
+  .visual-stack-intro {
+    padding: var(--space-md) 0 0;
+  }
+
+  .visual-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- Case study: mid-body breather image ---------- */
 
 .case-study-break-image {
