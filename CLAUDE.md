@@ -20,7 +20,7 @@ site/
   index.html            Home (Product Design landing)
   about.html             About page
   visual-design.html    Visual Design landing
-  case-studies.html      Password-gated private section (see below). Hidden from the nav on main.
+  case-studies.html      Case Studies section (see below). Linked in the nav, no password.
   projects/              15 individual project pages (2 templates, see below)
   assets/
     css/style.css        Single shared stylesheet — all design tokens as CSS custom properties
@@ -43,11 +43,9 @@ site/
 
 All design tokens (colors, spacing, type scale) live in `assets/css/style.css` as CSS custom properties — change them there, not per-page. Full reference in `../STYLE-GUIDE.md`.
 
-## The password-gated "Case Studies" section
+## The "Case Studies" section
 
-**Status (2026-10-16):** the "Case Studies" tab is deliberately hidden from the nav on every page on `main`, so the section is not live-linked while it's being built. Don't re-add the nav link on `main` unless Matthew asks. `case-studies.html` still exists and is reachable by direct URL (hiding the tab does not unpublish it). Work on this section happens in a separate local worktree, `../site-case-studies-dev` (branch `case-studies-dev`, not pushed), which still has the nav link. To launch it, re-add the `<li>` to the nav on all pages.
-
-`case-studies.html` is a private section, separate from the 15 public project pages. It's a client-side-only gate: the page stores a SHA-256 hash of the password and compares against it via the Web Crypto API, unlocking `sessionStorage` for the rest of the browser session. **This is obscurity, not real security** — it's a static site with no backend, so the hash and gated content are both fully visible in page source/devtools to anyone who looks. Fine for keeping casual visitors out, not for anything actually sensitive. The password itself is intentionally not written into this file or committed anywhere in plaintext — ask Matthew if you need it.
+**Status (2026-10-16):** the "Case Studies" tab is in the nav on every page (between Visual Design and About), and the old client-side password gate has been removed at Matthew's request, so `case-studies.html` is a normal public page. It currently uses the centered `.hero` layout with placeholder copy. Earlier work on this section lived in a local-only worktree, `../site-case-studies-dev` (branch `case-studies-dev`, not pushed).
 
 ## Known open items (as of 2026-08-08)
 
