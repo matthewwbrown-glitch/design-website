@@ -45,7 +45,7 @@ All design tokens (colors, spacing, type scale) live in `assets/css/style.css` a
 
 ## The "Case Studies" section
 
-**Status (2026-10-16):** the "Case Studies" tab is in the nav on every page (between Visual Design and About), and the old client-side password gate has been removed at Matthew's request, so `case-studies.html` is a normal public page. It currently uses the centered `.hero` layout with placeholder copy. Earlier work on this section lived in a local-only worktree, `../site-case-studies-dev` (branch `case-studies-dev`, not pushed).
+**Status (2026-10-16):** the "Case Studies" tab is in the nav on every page (between Visual Design and About), and the old client-side password gate has been removed at Matthew's request, so `case-studies.html` is a normal public page. It uses the centered `.hero` plus a `.work-grid` of three WorkCards linking to product-design-template case studies: `projects/offsite-to-onsite-migration.html`, `projects/new-demand.html`, `projects/shops-onboarding.html` (Meta / Shopify Meta App work). Their copy is real; carousel slides are still `.carousel-placeholder` and card thumbnails are empty until images are supplied, and the Offsite page's "Post-deadline forcing functions" section is still a placeholder. Earlier work on this section lived in a local-only worktree, `../site-case-studies-dev` (branch `case-studies-dev`, not pushed).
 
 ## Known open items (as of 2026-08-08)
 
