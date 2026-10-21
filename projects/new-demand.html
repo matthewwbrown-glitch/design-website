@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>New Demand, Matthew Brown</title>
   <meta name="description" content="Case study: leading the design strategy for Meta’s ‘New Demand’ project to expand market opportunities for merchants.">
+  <meta name="robots" content="noindex">
+  <script>
+    // Private case study: send visitors who haven't unlocked Case Studies back to the password screen.
+    try { if (sessionStorage.getItem('caseStudiesUnlocked') !== 'true') location.replace('../case-studies.html'); }
+    catch (e) { location.replace('../case-studies.html'); }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,11 +46,16 @@
       <p>I led the design strategy for ‘New Demand’, a critical initiative focused on expanding market opportunities and refining the merchant experience within the Meta ecosystem.</p>
     </div>
 
-    <div class="carousel">
+    <div class="carousel carousel--fit">
       <div class="carousel-viewport">
-        <div class="carousel-slide"><div class="carousel-placeholder">Image 1 to come</div></div>
-        <div class="carousel-slide"><div class="carousel-placeholder">Image 2 to come</div></div>
-        <div class="carousel-slide"><div class="carousel-placeholder">Image 3 to come</div></div>
+        <div class="carousel-slide is-active"><img src="../assets/images/case-studies/new-demand/01.jpg" alt="Seamless navigation from the Shopify Meta App to Ads Manager"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/new-demand/02.jpg" alt="Whiteboard sketches from early discovery sessions" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/new-demand/03.jpg" alt="Platform and onboarding roadmap mapped with the team" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/new-demand/04.jpg" alt="Entry points for the ads proposal within the Shopify Meta App" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/new-demand/05.jpg" alt="Shopify Meta App overview with the Advantage+ shopping promo card" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/new-demand/06.jpg" alt="Recommended campaign settings modal with connection fixes inline" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/new-demand/07.jpg" alt="Ads proposal received and ready to review in Ads Manager" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/new-demand/08.jpg" alt="Pre-filled campaign proposal opened in Ads Manager" loading="lazy"></div>
         <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous image">&larr;</button>
         <button class="carousel-arrow carousel-arrow--next" aria-label="Next image">&rarr;</button>
       </div>

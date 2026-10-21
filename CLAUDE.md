@@ -20,7 +20,7 @@ site/
   index.html            Home (Product Design landing)
   about.html             About page
   visual-design.html    Visual Design landing
-  case-studies.html      Case Studies section (see below). Linked in the nav, no password.
+  case-studies.html      Password-gated Case Studies section (see below). Linked in the nav.
   projects/              15 individual project pages (2 templates, see below)
   assets/
     css/style.css        Single shared stylesheet — all design tokens as CSS custom properties
@@ -43,9 +43,11 @@ site/
 
 All design tokens (colors, spacing, type scale) live in `assets/css/style.css` as CSS custom properties — change them there, not per-page. Full reference in `../STYLE-GUIDE.md`.
 
-## The "Case Studies" section
+## The password-gated "Case Studies" section
 
-**Status (2026-10-16):** the "Case Studies" tab is in the nav on every page (between Visual Design and About), and the old client-side password gate has been removed at Matthew's request, so `case-studies.html` is a normal public page. It uses the centered `.hero` plus a `.work-grid` of three WorkCards linking to product-design-template case studies: `projects/offsite-to-onsite-migration.html`, `projects/new-demand.html`, `projects/shops-onboarding.html` (Meta / Shopify Meta App work). Their copy is real; carousel slides are still `.carousel-placeholder` and card thumbnails are empty until images are supplied, and the Offsite page's "Post-deadline forcing functions" section is still a placeholder. Earlier work on this section lived in a local-only worktree, `../site-case-studies-dev` (branch `case-studies-dev`, not pushed).
+**Status (2026-10-21):** the "Case Studies" tab is in the nav on every page (between Visual Design and About) and is behind the client-side password gate. Once unlocked, it lists three Meta case studies: `projects/offsite-to-onsite-migration.html`, `projects/new-demand.html` and `projects/shops-onboarding.html`. Their images live in `assets/images/case-studies/<slug>/NN.jpg` (resized to max 2000px, JPEG). The carousels on these pages use the `carousel--fit` modifier so tall boards are shown whole rather than cropped.
+
+How the gate works: `case-studies.html` stores a SHA-256 hash of the password and compares against it via the Web Crypto API, setting `sessionStorage.caseStudiesUnlocked = 'true'` for the rest of the browser session. Each of the three case study pages has a tiny head script that redirects to `case-studies.html` if that flag isn't set, so they can't be read by direct URL in the normal course of things. All four pages are `noindex`. **This is obscurity, not real security** — it's a static site with no backend, so the hash and the content are visible in page source to anyone who looks. The password itself is intentionally not written into this file or committed anywhere in plaintext — ask Matthew if you need it.
 
 ## Known open items (as of 2026-08-08)
 

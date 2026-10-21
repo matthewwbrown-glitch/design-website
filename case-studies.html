@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Case Studies, Matthew Brown</title>
   <meta name="description" content="In-depth case studies from Matthew Brown, product designer at Meta.">
+  <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,42 +33,59 @@
   </header>
 
   <main>
-    <section class="hero">
-      <div class="container">
-        <h1>Case Studies</h1>
-        <p class="tagline">In-depth write-ups of recent product design work at Meta.</p>
+
+    <div class="container password-gate" id="passwordGate">
+      <div class="password-gate-card">
+        <h1>This section is private</h1>
+        <p class="tagline">Enter the password to view these case studies.</p>
+        <form class="password-gate-form" id="passwordForm" autocomplete="off">
+          <label for="passwordInput" class="sr-only">Password</label>
+          <input type="password" id="passwordInput" name="password" placeholder="Password" autocomplete="current-password" required>
+          <button type="submit">Unlock</button>
+          <p class="password-gate-error" id="passwordError" role="alert"></p>
+        </form>
       </div>
-    </section>
+    </div>
 
-    <section class="container">
-      <div class="work-grid">
+    <div class="password-gate-content" id="gatedContent">
+      <section class="hero">
+        <div class="container">
+          <h1>Case Studies</h1>
+          <p class="tagline">In-depth write-ups of recent product design work at Meta.</p>
+        </div>
+      </section>
 
-        <a class="work-card" href="projects/offsite-to-onsite-migration.html">
-          <div class="thumb"></div>
-          <div class="card-body">
-            <h3>Offsite to Onsite Migration</h3>
-            <p class="meta">Driving $8B+ TAM growth for Shopify merchants</p>
-          </div>
-        </a>
+      <section class="container">
+        <div class="work-grid">
 
-        <a class="work-card" href="projects/new-demand.html">
-          <div class="thumb"></div>
-          <div class="card-body">
-            <h3>New Demand</h3>
-            <p class="meta">Expanding market opportunities for merchants</p>
-          </div>
-        </a>
+          <a class="work-card" href="projects/offsite-to-onsite-migration.html">
+            <div class="thumb"><img src="assets/images/case-studies/offsite-to-onsite-migration/04.jpg" alt="Shopify Meta App overview after the update"></div>
+            <div class="card-body">
+              <h3>Offsite to Onsite Migration</h3>
+              <p class="meta">Driving $8B+ TAM growth for Shopify merchants</p>
+            </div>
+          </a>
 
-        <a class="work-card" href="projects/shops-onboarding.html">
-          <div class="thumb"></div>
-          <div class="card-body">
-            <h3>Shops Onboarding</h3>
-            <p class="meta">Global stakeholder alignment in Ads Manager</p>
-          </div>
-        </a>
+          <a class="work-card" href="projects/new-demand.html">
+            <div class="thumb"><img src="assets/images/case-studies/new-demand/01.jpg" alt="Seamless navigation from the Shopify Meta App to Ads Manager"></div>
+            <div class="card-body">
+              <h3>New Demand</h3>
+              <p class="meta">Expanding market opportunities for merchants</p>
+            </div>
+          </a>
 
-      </div>
-    </section>
+          <a class="work-card" href="projects/shops-onboarding.html">
+            <div class="thumb"><img src="assets/images/case-studies/shops-onboarding/06.jpg" alt="Create a shop on Facebook or Instagram"></div>
+            <div class="card-body">
+              <h3>Shops Onboarding</h3>
+              <p class="meta">Global stakeholder alignment in Ads Manager</p>
+            </div>
+          </a>
+
+        </div>
+      </section>
+    </div>
+
   </main>
 
   <footer class="site-footer">
@@ -78,5 +96,54 @@
 
   <script src="assets/js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    (function () {
+      // SHA-256 hash of the correct password. The plaintext password is never stored in this file.
+      var PASSWORD_HASH = '6cba804ffe33a6adec8f8b9b8af0ffb436cdbed47757a23dc15ffd56050e7cab';
+      var SESSION_KEY = 'caseStudiesUnlocked';
+
+      var gate = document.getElementById('passwordGate');
+      var content = document.getElementById('gatedContent');
+      var form = document.getElementById('passwordForm');
+      var input = document.getElementById('passwordInput');
+      var error = document.getElementById('passwordError');
+
+      function unlock() {
+        gate.classList.add('is-unlocked');
+        content.classList.add('is-unlocked');
+      }
+
+      function sha256(text) {
+        var data = new TextEncoder().encode(text);
+        return crypto.subtle.digest('SHA-256', data).then(function (buf) {
+          return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+            return b.toString(16).padStart(2, '0');
+          }).join('');
+        });
+      }
+
+      // Stay unlocked for the rest of the browser session.
+      if (sessionStorage.getItem(SESSION_KEY) === 'true') {
+        unlock();
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        sha256(input.value).then(function (hash) {
+          if (hash === PASSWORD_HASH) {
+            sessionStorage.setItem(SESSION_KEY, 'true');
+            error.textContent = '';
+            input.classList.remove('is-error');
+            unlock();
+          } else {
+            error.textContent = 'Incorrect password. Please try again.';
+            input.classList.add('is-error');
+            input.value = '';
+            input.focus();
+          }
+        });
+      });
+    })();
+  </script>
 </body>
 </html>

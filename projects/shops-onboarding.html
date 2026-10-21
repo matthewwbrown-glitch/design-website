@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shops Onboarding, Matthew Brown</title>
   <meta name="description" content="Case study: streamlining Shops onboarding in Ads Manager and aligning global stakeholders through a London design sprint.">
+  <meta name="robots" content="noindex">
+  <script>
+    // Private case study: send visitors who haven't unlocked Case Studies back to the password screen.
+    try { if (sessionStorage.getItem('caseStudiesUnlocked') !== 'true') location.replace('../case-studies.html'); }
+    catch (e) { location.replace('../case-studies.html'); }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,11 +46,16 @@
       <p>As Lead Product Designer for the Shopify Meta App, I led the strategy and design for Shops onboarding in Ads Manager, aligning cross-functional teams across global offices to deliver a unified seller experience.</p>
     </div>
 
-    <div class="carousel">
+    <div class="carousel carousel--fit">
       <div class="carousel-viewport">
-        <div class="carousel-slide"><div class="carousel-placeholder">London sprint photo to come</div></div>
-        <div class="carousel-slide"><div class="carousel-placeholder">Onboarding modal iterations to come</div></div>
-        <div class="carousel-slide"><div class="carousel-placeholder">Stakeholder journey map to come</div></div>
+        <div class="carousel-slide is-active"><img src="../assets/images/case-studies/shops-onboarding/01.jpg" alt="Whiteboard notes from day one of the design sprint"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/shops-onboarding/02.jpg" alt="Whiteboard notes from day two, mapping entry points, fail states and publish" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/shops-onboarding/03.jpg" alt="Optimised Shopify onboarding flow in Ads Manager" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/shops-onboarding/04.jpg" alt="Ads Manager campaigns view with the ad credit banner" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/shops-onboarding/05.jpg" alt="Recommended card offering ad credit to set up Shops ads" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/shops-onboarding/06.jpg" alt="Create a shop on Facebook or Instagram, connected to Shopify" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/shops-onboarding/07.jpg" alt="Shopify overview while the shop is being created" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/shops-onboarding/08.jpg" alt="Shopify overview once the shop is live and selling" loading="lazy"></div>
         <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous image">&larr;</button>
         <button class="carousel-arrow carousel-arrow--next" aria-label="Next image">&rarr;</button>
       </div>

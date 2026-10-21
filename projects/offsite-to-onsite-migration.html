@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Offsite to Onsite Migration, Matthew Brown</title>
   <meta name="description" content="Case study: leading the design strategy for migrating Shopify merchants from offsite ads to onsite Shop Ads at Meta.">
+  <meta name="robots" content="noindex">
+  <script>
+    // Private case study: send visitors who haven't unlocked Case Studies back to the password screen.
+    try { if (sessionStorage.getItem('caseStudiesUnlocked') !== 'true') location.replace('../case-studies.html'); }
+    catch (e) { location.replace('../case-studies.html'); }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -40,11 +46,15 @@
       <p>As the sole designer for the Shopify Meta App, I led the end-to-end design strategy that moved Shopify’s largest merchants from offsite ads to onsite Shop Ads without disrupting their business.</p>
     </div>
 
-    <div class="carousel">
+    <div class="carousel carousel--fit">
       <div class="carousel-viewport">
-        <div class="carousel-slide"><div class="carousel-placeholder">Optimised onboarding flow (SAOff) to come</div></div>
-        <div class="carousel-slide"><div class="carousel-placeholder">Image 2 to come</div></div>
-        <div class="carousel-slide"><div class="carousel-placeholder">Image 3 to come</div></div>
+        <div class="carousel-slide is-active"><img src="../assets/images/case-studies/offsite-to-onsite-migration/01.jpg" alt="2024 offsite deprecation timeline, from pre-deadline levers to post-deadline forcing functions"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/offsite-to-onsite-migration/02.jpg" alt="Reminder emails sent 30 and 7 days before the April 24 deadline" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/offsite-to-onsite-migration/03.jpg" alt="Contextual warning banner in the Shopify Meta App and Instagram megaphone" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/offsite-to-onsite-migration/04.jpg" alt="Shopify Meta App overview and Instagram profile after the update" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/offsite-to-onsite-migration/05.jpg" alt="Sell page modal with refreshed value props and a countdown to the deadline" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/offsite-to-onsite-migration/06.jpg" alt="Sell page linking out to Shops ads case studies and results" loading="lazy"></div>
+        <div class="carousel-slide"><img src="../assets/images/case-studies/offsite-to-onsite-migration/07.jpg" alt="Post-deadline seller experience journey map across seller cohorts" loading="lazy"></div>
         <button class="carousel-arrow carousel-arrow--prev" aria-label="Previous image">&larr;</button>
         <button class="carousel-arrow carousel-arrow--next" aria-label="Next image">&rarr;</button>
       </div>
