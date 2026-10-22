@@ -641,7 +641,7 @@ blockquote {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 18%; /* face high in the frame, headline below it */
+  object-position: 50% 30%;
 }
 
 /* Film grain, like a newsprint halftone: an SVG noise tile blended over the photo */
@@ -1346,7 +1346,6 @@ blockquote {
   body { font-size: 17px; }
 
   .profile-visual { min-height: 640px; }
-  .profile-photo { object-position: 70% 20%; }
   .profile-tag { font-size: 10px; letter-spacing: 0.24em; right: 14px; }
 
   .main-nav {
@@ -1472,4 +1471,25 @@ blockquote {
     padding-bottom: 18px;
     background-position: left bottom 8px;
   }
+}
+
+/* Profile photo framing: the photo never sits under the headline's widest
+   lines. Wide screens: photo fills the right 62%, headline overlaps its edge
+   on black. Phones: photo fills the top, headline sits on black below it. */
+@media (min-width: 721px) {
+  .profile-photo,
+  .profile-grain {
+    left: auto;
+    right: 0;
+    width: 55%;
+  }
+  .profile-photo { object-position: 30% 40%; }
+  .profile-visual { min-height: max(560px, min(56vw, 900px)); }
+}
+
+@media (max-width: 720px) {
+  .profile-visual { min-height: 820px; }
+  .profile-photo,
+  .profile-grain { height: 62%; }
+  .profile-photo { object-position: 46% 35%; }
 }
