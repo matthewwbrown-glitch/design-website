@@ -7,7 +7,7 @@
   <meta name="description" content="The online portfolio of Matthew Brown, a Melbourne-born, Seattle-based Product Designer.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
@@ -32,64 +32,210 @@
   </header>
 
   <main>
-    <section class="hero">
+    <section class="home-hero">
       <div class="container">
-        <h1>Product Design, from sketch to shipped.</h1>
+        <p class="section-label">Product designer</p>
+        <h1>Product Design, from sketch to <span class="accent">shipped.</span></h1>
         <p class="tagline">A collection of UX &amp; product design work, research, wireframes, prototypes and the occasional hard-won lesson.</p>
+        <a class="text-link" href="#work">See the work</a>
       </div>
     </section>
 
-    <section class="container">
-      <div class="work-grid">
+    <section class="home-work" id="work">
+      <div class="container">
+        <div class="tablist" role="tablist" aria-label="Work">
+          <button class="tab" id="tab-work" role="tab" type="button" aria-selected="true" aria-controls="panel-work">Work</button>
+          <button class="tab" id="tab-case-studies" role="tab" type="button" aria-selected="false" aria-controls="panel-case-studies" tabindex="-1">Case studies</button>
+          <button class="tab" id="tab-visual" role="tab" type="button" aria-selected="false" aria-controls="panel-visual" tabindex="-1">Visual design</button>
+        </div>
 
-        <a class="work-card" href="projects/workflow-designer.html">
-          <div class="thumb"><img src="assets/images/workflow-designer/Screen-Shot-2016-11-30-at-113604-pm.png" alt="Workflow Designer interface"></div>
-          <div class="card-body">
-            <h3>Workflow Designer</h3>
-            <p class="meta">Drag-and-drop workflow automation</p>
+        <div class="tab-viewport">
+          <div class="tab-track">
+
+            <div class="tab-panel" id="panel-work" role="tabpanel" aria-labelledby="tab-work" aria-hidden="false">
+              <div class="work-grid">
+                <a class="work-card" href="projects/workflow-designer.html">
+                  <div class="thumb"><img src="assets/images/workflow-designer/Screen-Shot-2016-11-30-at-113604-pm.png" alt="Workflow Designer interface"></div>
+                  <div class="card-body">
+                    <h3>Workflow Designer</h3>
+                    <p class="meta">Drag-and-drop workflow automation</p>
+                  </div>
+                </a>
+                <a class="work-card" href="projects/customer-search.html">
+                  <div class="thumb"><img src="assets/images/customer-search/Customer_Search__Matthew_Brown_Thumbnail.png" alt="Customer Search project thumbnail"></div>
+                  <div class="card-body">
+                    <h3>Customer Search</h3>
+                    <p class="meta">Simplifying cross-system customer lookup</p>
+                  </div>
+                </a>
+                <a class="work-card" href="projects/hangry-app.html">
+                  <div class="thumb"><img src="assets/images/hangry-app/Hangry_Page_01.png" alt="Hangry App concept"></div>
+                  <div class="card-body">
+                    <h3>Hangry App</h3>
+                    <p class="meta">General Assembly UX capstone project</p>
+                  </div>
+                </a>
+                <a class="work-card" href="projects/mobile-form-design.html">
+                  <div class="thumb"><img src="assets/images/mobile-form-design/Preview.png" alt="Mobile form design preview"></div>
+                  <div class="card-body">
+                    <h3>Mobile Forms</h3>
+                    <p class="meta">Mobile form usability improvements</p>
+                  </div>
+                </a>
+                <a class="work-card" href="projects/super-wealth-tracker.html">
+                  <div class="thumb"><img src="assets/images/super-wealth-tracker/SWT---Desktop-HD.png" alt="Super Wealth Tracker desktop design"></div>
+                  <div class="card-body">
+                    <h3>Super Wealth Tracker</h3>
+                    <p class="meta">Fin-tech UX lead, H2 Ventures accelerator</p>
+                  </div>
+                </a>
+                      </div>
+            </div>
+
+            <div class="tab-panel" id="panel-case-studies" role="tabpanel" aria-labelledby="tab-case-studies" aria-hidden="true">
+              <div class="cs-stage">
+                <form class="cs-gate" id="csGate" autocomplete="off">
+                  <p>In-depth write-ups of product design work at Meta and Atlassian. Enter the password to view them.</p>
+                  <div class="pw-row">
+                    <label for="csPassword" class="sr-only">Password</label>
+                    <input type="password" id="csPassword" name="password" placeholder="Password" autocomplete="current-password" required>
+                    <button type="submit">Unlock</button>
+                  </div>
+                  <p class="pw-error" id="csError" role="alert"></p>
+                </form>
+                <div class="work-grid cs-cards is-locked" id="csCards" aria-hidden="true">
+                <a class="work-card" href="projects/offsite-to-onsite-migration.html">
+                    <div class="thumb"><img src="assets/images/case-studies/offsite-to-onsite-migration/04.jpg" alt="Shopify Meta App overview after the update"></div>
+                    <div class="card-body">
+                      <h3>Offsite to Onsite Migration</h3>
+                      <p class="meta">Driving $8B+ TAM growth for Shopify merchants</p>
+                    </div>
+                  </a>
+                <a class="work-card" href="projects/new-demand.html">
+                  <div class="thumb"><img src="assets/images/case-studies/new-demand/cover.jpg" alt="Shopify Meta App overview with the one-click Create Ad Campaign modal"></div>
+                  <div class="card-body">
+                    <h3>New Demand</h3>
+                    <p class="meta">Expanding market opportunities for merchants</p>
+                  </div>
+                </a>
+                <a class="work-card" href="projects/shops-onboarding.html">
+                  <div class="thumb"><img src="assets/images/case-studies/shops-onboarding/06.jpg" alt="Create a shop on Facebook or Instagram"></div>
+                  <div class="card-body">
+                    <h3>Shops Onboarding</h3>
+                    <p class="meta">Global stakeholder alignment in Ads Manager</p>
+                  </div>
+                </a>
+                <a class="work-card" href="projects/atlassian-portfolio-for-jira.html">
+                  <div class="thumb"><img src="assets/images/case-studies/atlassian-portfolio-for-jira/cover.jpg" alt="Atlassian illustration of a blueprint with a pencil and ruler"></div>
+                  <div class="card-body">
+                    <h3>Atlassian Portfolio for Jira</h3>
+                    <p class="meta">Cutting regrettable churn from 27% to 8%</p>
+                  </div>
+                </a>
+                      </div>
+              </div>
+            </div>
+
+            <div class="tab-panel" id="panel-visual" role="tabpanel" aria-labelledby="tab-visual" aria-hidden="true">
+              <div class="work-grid">
+                <a class="work-card" href="projects/metro-trains.html">
+                  <div class="thumb"><img src="assets/images/metro-trains/MET0371_Metro_Valentines-Day_2014_MX_FPC_v2.jpg" alt="Metro Trains campaign work"></div>
+                  <div class="card-body"><h3>Metro Trains</h3></div>
+                </a>
+                <a class="work-card" href="projects/mastercard.html">
+                  <div class="thumb"><img src="assets/images/mastercard/MCA1981_Compact-Wrap_Sun_CBD_SMH_HR_Page_1.png" alt="MasterCard campaign work"></div>
+                  <div class="card-body"><h3>MasterCard</h3></div>
+                </a>
+                <a class="work-card" href="projects/moringa-project.html">
+                  <div class="thumb"><img src="assets/images/moringa-project/Moringa-Project---Assets-for-Website1.png" alt="Moringa Project branding"></div>
+                  <div class="card-body"><h3>Moringa Project</h3></div>
+                </a>
+                <a class="work-card" href="projects/glowpear.html">
+                  <div class="thumb"><img src="assets/images/glowpear/logo.jpg" alt="Glowpear branding"></div>
+                  <div class="card-body"><h3>Glowpear</h3></div>
+                </a>
+                <a class="work-card" href="projects/prancing-horse.html">
+                  <div class="thumb"><img src="assets/images/prancing-horse/ThePony.png" alt="Prancing Horse 'The Pony' branding"></div>
+                  <div class="card-body"><h3>Prancing Horse 'The Pony'</h3></div>
+                </a>
+                <a class="work-card" href="projects/blockbuster.html">
+                  <div class="thumb"><img src="assets/images/blockbuster/Header1.jpg" alt="Blockbuster campaign work"></div>
+                  <div class="card-body"><h3>Blockbuster</h3></div>
+                </a>
+                <a class="work-card" href="projects/hunting-the-bungle.html">
+                  <div class="thumb"><img src="assets/images/hunting-the-bungle/HTB_Logo.jpg" alt="Hunting the Bungle branding"></div>
+                  <div class="card-body"><h3>Hunting the Bungle</h3></div>
+                </a>
+                <a class="work-card" href="projects/wasp-bags.html">
+                  <div class="thumb"><img src="assets/images/wasp-bags/27_wasplogowebsite-2_950.jpg" alt="Wasp Bags branding"></div>
+                  <div class="card-body"><h3>Wasp Bags</h3></div>
+                </a>
+                <a class="work-card" href="projects/sfmrc.html">
+                  <div class="thumb"><img src="assets/images/sfmrc/45_gw7_950.jpg" alt="Stop Flooding My Record Collection"></div>
+                  <div class="card-body"><h3>Stop Flooding My Record Collection</h3></div>
+                </a>
+                <a class="work-card" href="projects/loreal.html">
+                  <div class="thumb"><img src="assets/images/loreal/LPD0012_PowderRoomFormAPP_Pres-V2_HR_Page_1.png" alt="L'Oréal campaign work"></div>
+                  <div class="card-body">
+                    <h3>L'Oréal</h3>
+                    <p class="meta">Digital campaigns, McCann Worldgroup</p>
+                  </div>
+                </a>
+                      </div>
+            </div>
+
           </div>
-        </a>
+        </div>
+      </div>
+    </section>
 
-        <a class="work-card" href="projects/customer-search.html">
-          <div class="thumb"><img src="assets/images/customer-search/Customer_Search__Matthew_Brown_Thumbnail.png" alt="Customer Search project thumbnail"></div>
-          <div class="card-body">
-            <h3>Customer Search</h3>
-            <p class="meta">Simplifying cross-system customer lookup</p>
-          </div>
-        </a>
+    <section class="home-principles">
+      <div class="container">
+        <p class="section-label">Principles</p>
+        <ol class="principles">
+          <li>
+            <div class="principle">
+              <h3>Craft</h3>
+              <p>Design quality isn't a setting you dial in. It's a standard you hold every day.</p>
+            </div>
+          </li>
+          <li>
+            <div class="principle">
+              <h3>Systems</h3>
+              <p>The best solution also makes the next ten solutions easier.</p>
+            </div>
+          </li>
+          <li>
+            <div class="principle">
+              <h3>Clarity</h3>
+              <p>Complexity is rarely the right answer. My job is to reduce friction, not add it.</p>
+            </div>
+          </li>
+          <li>
+            <div class="principle">
+              <h3>Curiosity</h3>
+              <p>I'm always exploring new tools and ways of working, and sharing what I find with the team.</p>
+            </div>
+          </li>
+          <li>
+            <div class="principle">
+              <h3>Community</h3>
+              <p>Design is better when more people have access to it, inside teams and in the world.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
 
-        <a class="work-card" href="projects/hangry-app.html">
-          <div class="thumb"><img src="assets/images/hangry-app/Hangry_Page_01.png" alt="Hangry App concept"></div>
-          <div class="card-body">
-            <h3>Hangry App</h3>
-            <p class="meta">General Assembly UX capstone project</p>
-          </div>
-        </a>
-
-        <a class="work-card" href="projects/mobile-form-design.html">
-          <div class="thumb"><img src="assets/images/mobile-form-design/Preview.png" alt="Mobile form design preview"></div>
-          <div class="card-body">
-            <h3>Mobile Forms</h3>
-            <p class="meta">Mobile form usability improvements</p>
-          </div>
-        </a>
-
-        <a class="work-card" href="projects/super-wealth-tracker.html">
-          <div class="thumb"><img src="assets/images/super-wealth-tracker/SWT---Desktop-HD.png" alt="Super Wealth Tracker desktop design"></div>
-          <div class="card-body">
-            <h3>Super Wealth Tracker</h3>
-            <p class="meta">Fin-tech UX lead, H2 Ventures accelerator</p>
-          </div>
-        </a>
-
-        <a class="work-card" href="projects/loreal.html">
-          <div class="thumb"><img src="assets/images/loreal/LPD0012_PowderRoomFormAPP_Pres-V2_HR_Page_1.png" alt="L'Oréal campaign work"></div>
-          <div class="card-body">
-            <h3>L'Oréal</h3>
-            <p class="meta">Digital campaigns, McCann Worldgroup</p>
-          </div>
-        </a>
-
+    <section class="home-profile">
+      <div class="container">
+        <p class="section-label">Profile</p>
+        <h2>Melbourne-born. <span class="accent">Seattle-based.</span></h2>
+        <div class="profile-copy">
+          <p>I'm Matthew Brown, currently working at Meta as a product designer, where I lead design across the Shopify Meta App and Advertiser Experience (AdEx).</p>
+          <p>I have experience in user testing, developing wireframes, agile and lean UX, branding, advertising and digital design. I've worked with some of the best creative agencies, brands and tech companies, and tutored User Experience Design at General Assembly. I put this page together so the people I work with (and might work with) can understand me a bit better.</p>
+        </div>
+        <a class="text-link" href="about.html">More about me</a>
       </div>
     </section>
   </main>

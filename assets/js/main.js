@@ -99,9 +99,14 @@ document.addEventListener('DOMContentLoaded', function () {
   var selector = [
     '.hero h1',
     '.hero p.tagline',
-    '.work-grid .work-card',
+    '.work-grid:not(.cs-cards) .work-card',
+    '.principles li',
+    '.case-study-figure',
     '.case-study-header > *',
-    '.case-study-body > *',
+    '.case-study-body > p',
+    '.case-study-body > h4',
+    '.case-study-body > ul',
+    '.case-study-body > blockquote',
     '.visual-grid-row figure',
     '.visual-hero',
     '.case-study-break-image',
@@ -140,5 +145,94 @@ document.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.case-study-figure video[autoplay]').forEach(function (v) {
     v.removeAttribute('autoplay');
     v.pause();
+  });
+});
+
+// Home: Work / Case studies / Visual design tabs that slide left to right.
+document.addEventListener('DOMContentLoaded', function () {
+  var tablist = document.querySelector('.home-work .tablist');
+  if (!tablist) return;
+  var tabs = Array.prototype.slice.call(tablist.querySelectorAll('[role="tab"]'));
+  var track = document.querySelector('.home-work .tab-track');
+  var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
+
+  function select(i, focus) {
+    tabs.forEach(function (t, j) {
+      var on = i === j;
+      t.setAttribute('aria-selected', on ? 'true' : 'false');
+      t.setAttribute('tabindex', on ? '0' : '-1');
+      panels[j].setAttribute('aria-hidden', on ? 'false' : 'true');
+      if (on) panels[j].removeAttribute('inert'); else panels[j].setAttribute('inert', '');
+    });
+    track.style.transform = 'translateX(' + (-100 * i) + '%)';
+    if (focus) tabs[i].focus();
+  }
+
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { select(i); });
+    t.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { select((i + 1) % tabs.length, true); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { select((i - 1 + tabs.length) % tabs.length, true); e.preventDefault(); }
+    });
+  });
+  select(0);
+});
+
+// Home: password gate on the Case studies tab. Same hash and session flag as case-studies.html,
+// so unlocking here also opens the individual case study pages.
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('csGate');
+  var cards = document.getElementById('csCards');
+  if (!form || !cards) return;
+  var PASSWORD_HASH = '6cba804ffe33a6adec8f8b9b8af0ffb436cdbed47757a23dc15ffd56050e7cab';
+  var SESSION_KEY = 'caseStudiesUnlocked';
+  var input = document.getElementById('csPassword');
+  var error = document.getElementById('csError');
+  var row = form.querySelector('.pw-row');
+  var stage = form.parentNode;
+
+  function open(animate) {
+    cards.classList.remove('is-locked');
+    if (animate) cards.classList.add('is-open');
+    cards.setAttribute('aria-hidden', 'false');
+    stage.classList.add('is-unlocked-stage');
+    form.setAttribute('aria-hidden', 'true');
+    form.setAttribute('inert', '');
+  }
+
+  var unlocked = false;
+  try { unlocked = sessionStorage.getItem(SESSION_KEY) === 'true'; } catch (e) {}
+  if (unlocked) { open(false); return; }
+
+  function sha256(text) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+      return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+    });
+  }
+
+  input.addEventListener('input', function () {
+    error.textContent = '';
+    row.classList.remove('is-error');
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    sha256(input.value).then(function (hash) {
+      if (hash === PASSWORD_HASH) {
+        try { sessionStorage.setItem(SESSION_KEY, 'true'); } catch (err) {}
+        form.classList.add('gate-out');
+        setTimeout(function () { open(true); }, 350);
+      } else {
+        error.textContent = 'Incorrect password. Please try again.';
+        row.classList.add('is-error');
+        form.classList.remove('gate-shake');
+        void form.offsetWidth;
+        form.classList.add('gate-shake');
+        input.value = '';
+        input.focus();
+      }
+    });
   });
 });

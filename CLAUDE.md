@@ -41,7 +41,18 @@ site/
 - **Product Design case study** (`workflow-designer`, `customer-search`, `hangry-app`, `mobile-form-design`, `super-wealth-tracker`, `loreal`): left-aligned `.case-study-header` + `.case-study-body` prose, with images as `<figure class="case-study-figure">` (img + figcaption) placed after the section they illustrate, the same pattern as the Case Studies section (no top carousel since 2026-10-21). Small images (phone screens, old photos) render at natural size; very tall ones are capped at 85vh. L'Oréal has no narrative yet, so its images are grouped under short h4 labels.
 - **Visual Design gallery** (`metro-trains`, `mastercard`, `moringa-project`, `glowpear`, `prancing-horse`, `blockbuster`, `hunting-the-bungle`, `wasp-bags`, `sfmrc`): centered `.hero` title, no narrative body, images laid out via `.visual-sequence`/`.visual-grid-row`/`.visual-hero` (orientation-aware: landscape images fill hero slots, portrait fills grid slots).
 
-All design tokens (colors, spacing, type scale) live in `assets/css/style.css` as CSS custom properties — change them there, not per-page. Full reference in `../STYLE-GUIDE.md`.
+All design tokens (colors, spacing, type scale) live in `assets/css/style.css` as CSS custom properties — change them there, not per-page.
+
+## Design system: "Signal" (since 2026-10-22)
+
+Matthew's locked-in look, inspired by michaelcobra.com and filtered through Bauhaus / Rams / Vignelli. Reference: the "Signal" Design System artifact on claude.ai.
+
+- **Colour is the ground.** Four Pantone colours: Black C `#2D2926`, Bright White 11-0601 TPX `#F4F5F0`, Beige 14-1118 TPX `#D5BA98`, Neutral Gray 17-4402 TPX `#8E918F`. Whole sections are black, white or beige; nothing inside them is boxed or shadowed.
+- **Beige is the one callout** (a single word in a headline, e.g. `<span class="accent">shipped.</span>`), and only on black (7.8:1). Never beige text on white (1.7:1). Neutral Gray is muted text on black only; on white use `--gray-deep` `#5F625F`, on beige `--umber` `#4A4744`.
+- **Type:** Inter only (400/500/700/800). Headlines 800 uppercase; labels/nav tracked caps (0.16–0.2em); body sentence case.
+- **Square:** no radius, no shadows, no gradients. Hairline rules (`--rule-dark` / `--rule-light`) separate rows.
+- Page headers (`.hero`, `.case-study-header`, `.back-link`, `.visual-project-intro`, `.visual-stack-intro`, the About intro) are full-bleed black bands; the band is drawn with a `box-shadow`/`clip-path` trick so the markup inside `main.container` didn't have to change. Case-study `h4`s get automatic `01`, `02`… numbers via a CSS counter.
+- **Home (`index.html`)**: black hero → white section with three sliding tabs (Work, Case studies, Visual design; L'Oréal sits under Visual design on the home page) → beige Principles (the Values from About) → black Profile. The Case studies tab has its own password field (same hash and `sessionStorage` flag as `case-studies.html`); the password field and the four cards share one grid cell so the section height doesn't change when it unlocks, then the cards drop in one after another. Tab and gate logic live in `main.js`.
 
 ## The password-gated "Case Studies" section
 
@@ -54,8 +65,7 @@ How the gate works: `case-studies.html` stores a SHA-256 hash of the password an
 - Several project pages have thin/placeholder copy: Workflow Designer ("User interface validation", "Hi-fidelity design"), Customer Search (only 1 supporting image), Hangry App ("Personas" has no source copy), Super Wealth Tracker ("Brand identity and style guide" section, "Customer presentation pack"), L'Oréal (almost no narrative despite 13 images).
 - `content/projects/<slug>/images/` (the parallel staging area) has more images than are live on the site for several projects — notably `glowpear` has a real `5.jpg` there that never made it into `site/assets/images/glowpear/`, and `moringa-project`/`prancing-horse` also have unused extra images staged.
 - There's an unlinked 16th project, `content/projects/sketch-book-project/` (46 images, no case-study.md), not part of the current 15-project site — confirm with Matthew whether this should become a real page.
-- `index.html`'s meta description still says "Melbourne-born, Seattle-based Product Designer" — stale location reference (About page's equivalent was already fixed to drop location).
-- `style.css` has two separate, non-consolidated `@media (max-width: 480px)` blocks — cosmetic cleanup, not a bug.
+- `index.html`'s meta description and the home Profile headline say "Melbourne-born, Seattle-based" — check with Matthew whether that location reference is still current.
 
 ## Working conventions
 
