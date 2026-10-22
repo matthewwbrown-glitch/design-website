@@ -1493,3 +1493,31 @@ blockquote {
   .profile-grain { height: 62%; }
   .profile-photo { object-position: 46% 35%; }
 }
+
+/* Influences & Craft: hairline-separated rows instead of bullets */
+.influences {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 44em;
+  border-top: 1px solid var(--rule-dark);
+}
+
+.influences li {
+  margin: 0;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--rule-dark);
+  color: var(--gray-deep);
+}
+
+.influences li + li { margin-top: 0; }
+
+.influences strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--black-c);
+}
