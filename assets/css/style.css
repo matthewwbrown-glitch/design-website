@@ -385,6 +385,11 @@ section.section-heading h2 {
   margin-top: var(--space-md);
 }
 
+/* Give each bullet a little breathing room, like a short paragraph break */
+.case-study-body li + li {
+  margin-top: var(--space-xs);
+}
+
 /* Images placed after the section they illustrate (replaces the top carousel on case studies) */
 .case-study-figure {
   margin: var(--space-md) 0;
