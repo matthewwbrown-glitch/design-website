@@ -1007,7 +1007,16 @@ blockquote {
   margin-bottom: var(--space-5);
 }
 
-.about-layout > div:first-child p:last-child { margin-bottom: 0; }
+.about-layout > div:first-child p:last-of-type { margin-bottom: 0; }
+
+.about-photo {
+  margin: clamp(48px, 7vw, 96px) 0 0;
+}
+
+.about-photo img {
+  width: 100%;
+  height: auto;
+}
 
 .about-layout > div:first-child p {
   max-width: 32em;
