@@ -385,6 +385,30 @@ section.section-heading h2 {
   margin-top: var(--space-md);
 }
 
+/* Images placed after the section they illustrate (replaces the top carousel on case studies) */
+.case-study-figure {
+  margin: var(--space-md) 0;
+}
+
+.case-study-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+}
+
+.case-study-figure figcaption {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  padding-top: var(--space-xs);
+}
+
+.case-study-figure + .case-study-figure {
+  margin-top: var(--space-sm);
+}
+
 .case-study-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
