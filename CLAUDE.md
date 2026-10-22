@@ -18,7 +18,7 @@ A static HTML/CSS/JS site — **no framework, no build tool, no package manager*
 ```
 site/
   index.html            Home (Product Design landing)
-  about.html             About page
+  about.html             Redirect only: About now lives at the bottom of the home page (index.html#about)
   visual-design.html    Visual Design landing
   case-studies.html      Password-gated Case Studies section (see below). Linked in the nav.
   projects/              15 individual project pages (2 templates, see below)
@@ -51,8 +51,8 @@ Matthew's locked-in look, inspired by michaelcobra.com and filtered through Bauh
 - **Beige is the one callout** (a single word in a headline, e.g. `<span class="accent">shipped.</span>`), and only on black (7.8:1). Never beige text on white (1.7:1). Neutral Gray is muted text on black only; on white use `--gray-deep` `#5F625F`, on beige `--umber` `#4A4744`.
 - **Type:** Inter only (400/500/700/800). Headlines 800 uppercase; labels/nav tracked caps (0.16–0.2em); body sentence case.
 - **Square:** no radius, no shadows, no gradients. Hairline rules (`--rule-dark` / `--rule-light`) separate rows.
-- Page headers (`.hero`, `.case-study-header`, `.back-link`, `.visual-project-intro`, `.visual-stack-intro`, the About intro) are full-bleed black bands; the band is drawn with a `box-shadow`/`clip-path` trick so the markup inside `main.container` didn't have to change. Case-study `h4`s get automatic `01`, `02`… numbers via a CSS counter.
-- **Home (`index.html`)**: black hero → white section with three sliding tabs (Work, Case studies, Visual design; L'Oréal sits under Visual design on the home page) → beige Principles (the Values from About) → black Profile. The Case studies tab has its own password field (same hash and `sessionStorage` flag as `case-studies.html`); the password field and the four cards share one grid cell so the section height doesn't change when it unlocks, then the cards drop in one after another. Tab and gate logic live in `main.js`.
+- Page headers (`.hero`, `.case-study-header`, `.back-link`, `.visual-project-intro`, `.visual-stack-intro`) are full-bleed black bands; the band is drawn with a `box-shadow`/`clip-path` trick so the markup inside `main.container` didn't have to change. Case-study `h4`s get automatic `01`, `02`… numbers via a CSS counter.
+- **Home (`index.html`)**: black hero → white section with three sliding tabs (Work, Case studies, Visual design; L'Oréal sits under Visual design on the home page) → beige Principles (the Values) → black Profile (`#about`) → white About details (How I work, Strengths, Influences, Work experience, Brands). The Profile is a full-bleed duotone photo of Matthew at Meta (`assets/images/about/matthew-meta-dark.jpg`, Black C to a dark warm brown so cream type over it stays ≥ 5.5:1 and beige ≥ 3.2:1) with the headline laid over it, a CSS/SVG film grain, a vertical caption and a spinning badge straddling its bottom edge, a nod to michaelcobra.com. The nav's About link points to `index.html#about`; `about.html` only redirects there so old links keep working. The Case studies tab has its own password field (same hash and `sessionStorage` flag as `case-studies.html`); the password field and the four cards share one grid cell so the section height doesn't change when it unlocks, then the cards drop in one after another. Tab and gate logic live in `main.js`.
 
 ## The password-gated "Case Studies" section
 

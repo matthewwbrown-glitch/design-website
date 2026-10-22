@@ -25,7 +25,7 @@
           <li><a href="index.html" aria-current="page">Product Design</a></li>
           <li><a href="visual-design.html">Visual Design</a></li>
           <li><a href="case-studies.html">Case Studies</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="index.html#about">About</a></li>
         </ul>
       </nav>
     </div>
@@ -227,15 +227,135 @@
       </div>
     </section>
 
-    <section class="home-profile">
-      <div class="container">
-        <p class="section-label">Profile</p>
-        <h2>Melbourne-born. <span class="accent">Seattle-based.</span></h2>
+    <section class="home-profile" id="about" aria-labelledby="profile-heading">
+      <div class="profile-visual">
+        <img class="profile-photo" src="assets/images/about/matthew-meta-dark.jpg" alt="Matthew sitting in front of the Meta sign at 1 Hacker Way, in black and white with a warm brown tint" width="2000" height="1500" loading="lazy">
+        <div class="profile-grain" aria-hidden="true"></div>
+        <div class="container profile-overlay">
+          <p class="section-label">Profile</p>
+          <h2 id="profile-heading">Melbourne-born. <span class="accent">Seattle-based.</span></h2>
+        </div>
+        <p class="profile-tag" aria-hidden="true">1 Hacker Way &mdash; Meta HQ</p>
+        <div class="profile-badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <defs><path id="badge-ring" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"/></defs>
+            <text><textPath href="#badge-ring" textLength="289">MATTHEW BROWN · PRODUCT DESIGNER · MATTHEW BROWN · PRODUCT DESIGNER · </textPath></text>
+          </svg>
+          <img src="assets/images/favicon/logo-mark.png" alt="">
+        </div>
+      </div>
+      <div class="container profile-body">
         <div class="profile-copy">
-          <p>I'm Matthew Brown, currently working at Meta as a product designer, where I lead design across the Shopify Meta App and Advertiser Experience (AdEx).</p>
+          <p class="profile-lede">I'm Matthew Brown, currently working at Meta as a product designer, where I lead design across the Shopify Meta App and Advertiser Experience (AdEx).</p>
           <p>I have experience in user testing, developing wireframes, agile and lean UX, branding, advertising and digital design. I've worked with some of the best creative agencies, brands and tech companies, and tutored User Experience Design at General Assembly. I put this page together so the people I work with (and might work with) can understand me a bit better.</p>
         </div>
-        <a class="text-link" href="about.html">More about me</a>
+      </div>
+    </section>
+
+    <section class="home-about">
+      <div class="container about-details">
+      <section class="section-heading">
+        <h2>How I Work</h2>
+
+        <div class="quote-block">
+          <p>"I hold quality to an uncompromising bar."</p>
+          <p>I live in the product, test relentlessly, and catch edge cases long before they reach customers. I view design reviews and hands-on dogfooding not as optional checkpoints, but as core practices that safeguard the end-to-end user experience. Quality isn't a single project phase. It's how I show up every day.</p>
+        </div>
+
+        <div class="quote-block">
+          <p>"I'm a systems thinker by default."</p>
+          <p>I build foundations that make future problems easier to solve, whether that's reusable component libraries, single-source-of-truth documentation, or operational frameworks for cross-functional teams. I believe clear documentation and shared infrastructure are just as much a design output as high-fidelity prototypes.</p>
+        </div>
+
+        <div class="quote-block">
+          <p>"I thrive in ambiguity."</p>
+          <p>When priorities shift or team boundaries blur, I step into the gap. I excel at taking ill-defined problems, conducting strategic audits, and establishing structure where there is none. I am most effective when dropped into complex, high-stakes environments that require fast synthesis and steady execution.</p>
+        </div>
+      </section>
+      <section class="section-heading">
+        <h2>Strengths</h2>
+        <ul>
+          <li>Cross-functional alignment and workshop facilitation</li>
+          <li>Quality guardianship at scale</li>
+          <li>Systems, frameworks, and documentation</li>
+          <li>Tying design decisions directly to business outcomes</li>
+          <li>Mentoring and growing junior designers</li>
+        </ul>
+      </section>
+      <section class="section-heading">
+        <h2>Influences</h2>
+        <ul>
+          <li>Analog design, film photography and notebooks</li>
+          <li>Figma Make and the emerging space of AI-assisted design exploration</li>
+          <li>The craft of dogfooding, living in the products I build, not just designing them</li>
+          <li>Teaching design to people who don't see it as a career option yet</li>
+        </ul>
+      </section>
+      <section class="section-heading">
+        <h2>Work experience</h2>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <h3>Meta · Product Designer</h3>
+            <p class="meta">Feb 2020 to Present · Shopify Meta App + Advertiser Experience</p>
+            <p>Design lead across commerce and advertising surfaces. Scaled onsite TAM from $5.5B to $8.2B, unlocked $1.68B+ in revenue through SAOff migration, and exceeded team targets two years running. Sole designer supporting up to 12 engineers; expanded scope to lead a second product area in 2025.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Atlassian · Product Designer</h3>
+            <p class="meta">Aug 2018 to Feb 2020 · Sydney</p>
+            <p>Designed for enterprise collaboration products at one of Australia's most recognised technology companies.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>ANZ · Senior UX Designer</h3>
+            <p class="meta">May 2017 to Aug 2018 · Melbourne</p>
+            <p>Led UX design at one of Australia's largest banks, working across digital banking products at scale.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>Nintex · UX Designer</h3>
+            <p class="meta">Mar 2015 to May 2017 · Melbourne</p>
+            <p>Designed interaction and prototyping experiences for enterprise workflow software used globally across Microsoft's partner ecosystem.</p>
+          </div>
+
+          <div class="timeline-item">
+            <h3>General Assembly · UX Design Instructor</h3>
+            <p class="meta">Sep 2015 to Dec 2015 · Melbourne</p>
+            <p>Tutored the next cohort of UX students after completing GA's intensive 12-week programme, an early signal of where my interest in teaching would go.</p>
+          </div>
+        </div>
+
+        <h4>Brands I've worked with</h4>
+        <ul class="brand-list">
+          <li>Australia and New Zealand Bank (ANZ)</li>
+          <li>Mastercard</li>
+          <li>Metro Trains</li>
+          <li>Tigerair</li>
+          <li>L'Oréal</li>
+          <li>Bendigo Bank</li>
+          <li>Department of Education, Employment and Workplace Relations</li>
+          <li>Maybelline</li>
+          <li>Specsavers</li>
+          <li>Macquarie Dictionary (Stop Phubbing)</li>
+          <li>Vitasoy</li>
+          <li>Pacific Brands (KingGee / Hard Yakka)</li>
+          <li>Maurice Blackburn</li>
+          <li>Forty Winks</li>
+          <li>Glowpear</li>
+          <li>Wasp Bags</li>
+          <li>SHP</li>
+          <li>Green Heritage</li>
+          <li>Hunting the Bungle</li>
+          <li>Product Imaging</li>
+          <li>Moringa Project</li>
+          <li>Mayo Hardware</li>
+          <li>Prancing Horse Estate</li>
+          <li>IGA</li>
+          <li>EdVantage</li>
+          <li>Laminex</li>
+        </ul>
+      </section>
       </div>
     </section>
   </main>

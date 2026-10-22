@@ -614,31 +614,152 @@ blockquote {
   color: var(--umber);
 }
 
-/* Profile (black) */
-.home-profile { background: var(--black-c); color: var(--bright-white); }
+/* Profile (black): full-bleed duotone photo with type, grain, a vertical tag and a spinning badge laid over it */
+.home-profile {
+  background: var(--black-c);
+  color: var(--bright-white);
+  scroll-margin-top: 64px;
+}
 
-.home-profile .container {
+.profile-visual {
+  position: relative;
+  min-height: max(560px, min(75vw, 1200px)); /* the photo's own 4:3, so the headline lands on the sign, not the lettering */
+  display: flex;
+  align-items: flex-start;
+  overflow-x: clip;
+  isolation: isolate;
+}
+
+.profile-photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+/* Film grain, like a newsprint halftone: an SVG noise tile blended over the photo */
+.profile-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .35;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.profile-overlay {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--space-5);
-  padding-top: var(--section-pad);
-  padding-bottom: var(--section-pad);
+  gap: clamp(28px, 4vw, 48px);
+  padding-top: clamp(64px, 9vw, 120px);
+  padding-bottom: 160px;
 }
 
-.home-profile .section-label { margin: 0; }
+.profile-overlay .section-label { margin: 0; }
 
 .home-profile h2 {
   margin: 0;
-  font-size: clamp(40px, 6vw, 88px);
-  line-height: 0.95;
+  max-width: 9em;
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 0.92;
 }
 
-.home-profile .profile-copy { max-width: var(--measure); }
+.home-profile .accent { color: var(--beige); }
 
-.home-profile .profile-copy p { font-size: clamp(18px, 1.6vw, 20px); }
+/* Hand-set vertical caption down the right edge */
+.profile-tag {
+  position: absolute;
+  right: var(--gutter);
+  top: 50%;
+  margin: 0;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--beige);
+}
 
-.home-profile .text-link { border-bottom-color: var(--beige); }
+/* Badge that straddles the photo's bottom edge */
+.profile-badge {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: clamp(112px, 12vw, 152px);
+  aspect-ratio: 1;
+  translate: -50% 50%;
+  border-radius: 50%;
+  background: var(--black-c);
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+
+.profile-badge svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: badge-spin 24s linear infinite;
+}
+
+.profile-badge text {
+  fill: var(--beige);
+  font-family: var(--font-sans);
+  font-size: 8.4px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.profile-badge img {
+  width: 30%;
+  height: auto;
+  filter: invert(1);
+}
+
+@keyframes badge-spin { to { transform: rotate(360deg); } }
+
+.profile-body {
+  padding-top: clamp(112px, 12vw, 160px);
+  padding-bottom: var(--section-pad);
+}
+
+.profile-copy { max-width: var(--measure); }
+
+.profile-copy p {
+  margin: 0;
+  font-size: clamp(18px, 1.6vw, 20px);
+}
+
+.profile-copy .profile-lede {
+  margin-bottom: var(--space-4);
+  font-size: clamp(22px, 2.4vw, 30px);
+  line-height: 1.35;
+}
+
+/* About details (white): How I work, Strengths, Influences, Work experience */
+.home-about { background: var(--bright-white); color: var(--black-c); }
+
+.about-details {
+  padding-bottom: var(--section-pad);
+}
+
+.about-details > .section-heading { max-width: 960px; }
+
+.about-details h4 {
+  margin: var(--space-6) 0 var(--space-3);
+  font-size: 13px;
+  letter-spacing: 0.2em;
+}
 
 /* ---------- Case study page ---------- */
 
@@ -1197,6 +1318,10 @@ blockquote {
 @media (max-width: 720px) {
   body { font-size: 17px; }
 
+  .profile-visual { min-height: 640px; }
+  .profile-photo { object-position: 46% 100%; }
+  .profile-tag { font-size: 10px; letter-spacing: 0.24em; right: 14px; }
+
   .main-nav {
     display: none;
     position: absolute;
@@ -1252,6 +1377,7 @@ blockquote {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .tab-track { transition: none; }
+  .profile-badge svg { animation: none; }
   .cs-cards.is-open .work-card,
   .password-gate-content.is-unlocked .work-card,
   .gate-out,
