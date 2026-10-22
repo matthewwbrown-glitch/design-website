@@ -133,3 +133,12 @@ document.addEventListener('DOMContentLoaded', function () {
     observer.observe(el);
   });
 });
+
+// Looping case-study videos (converted from Keynote GIFs): respect reduced-motion by showing the poster frame only.
+document.addEventListener('DOMContentLoaded', function () {
+  if (!window.matchMedia || !window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('.case-study-figure video[autoplay]').forEach(function (v) {
+    v.removeAttribute('autoplay');
+    v.pause();
+  });
+});

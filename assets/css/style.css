@@ -395,7 +395,8 @@ section.section-heading h2 {
   margin: var(--space-md) 0;
 }
 
-.case-study-figure img {
+.case-study-figure img,
+.case-study-figure video {
   display: block;
   width: 100%;
   height: auto;
