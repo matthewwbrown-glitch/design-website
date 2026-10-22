@@ -38,7 +38,7 @@
   --sketch-black: url("../images/strokes/stroke-black.png");
   --sketch-white: url("../images/strokes/stroke-white.png");
   --sketch-beige: url("../images/strokes/stroke-beige.png");
-  --sketch-height: 8px;
+  --sketch-height: 11px;
 
   --ease: cubic-bezier(.2, .7, .2, 1);
   --ease-slide: cubic-bezier(.65, 0, .35, 1);
