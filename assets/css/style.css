@@ -418,6 +418,8 @@ section.section-heading h2 {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 85vh;
+  object-fit: contain;
   border-radius: 4px;
   border: 1px solid var(--color-border);
   background: var(--color-bg-alt);
@@ -427,6 +429,12 @@ section.section-heading h2 {
   font-size: 0.85rem;
   color: var(--color-text-muted);
   padding-top: var(--space-xs);
+}
+
+/* Small or tall images (phone screens, old photos) show at natural size instead of stretching */
+.case-study-figure img {
+  width: auto;
+  max-width: 100%;
 }
 
 .case-study-figure .carousel {

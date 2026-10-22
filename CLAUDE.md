@@ -38,7 +38,7 @@ site/
 
 ## Two page templates — don't mix them up
 
-- **Product Design case study** (`workflow-designer`, `customer-search`, `hangry-app`, `mobile-form-design`, `super-wealth-tracker`, `loreal`): left-aligned `.case-study-header` + `.case-study-body` prose + a `.carousel` image component (autoplay, dots, arrows, keyboard + swipe nav).
+- **Product Design case study** (`workflow-designer`, `customer-search`, `hangry-app`, `mobile-form-design`, `super-wealth-tracker`, `loreal`): left-aligned `.case-study-header` + `.case-study-body` prose, with images as `<figure class="case-study-figure">` (img + figcaption) placed after the section they illustrate, the same pattern as the Case Studies section (no top carousel since 2026-10-21). Small images (phone screens, old photos) render at natural size; very tall ones are capped at 85vh. L'Oréal has no narrative yet, so its images are grouped under short h4 labels.
 - **Visual Design gallery** (`metro-trains`, `mastercard`, `moringa-project`, `glowpear`, `prancing-horse`, `blockbuster`, `hunting-the-bungle`, `wasp-bags`, `sfmrc`): centered `.hero` title, no narrative body, images laid out via `.visual-sequence`/`.visual-grid-row`/`.visual-hero` (orientation-aware: landscape images fill hero slots, portrait fills grid slots).
 
 All design tokens (colors, spacing, type scale) live in `assets/css/style.css` as CSS custom properties — change them there, not per-page. Full reference in `../STYLE-GUIDE.md`.
@@ -61,5 +61,5 @@ How the gate works: `case-studies.html` stores a SHA-256 hash of the password an
 
 - No build tooling means no linter/formatter enforced — match existing style (2-space indent, class-based CSS, no inline styles).
 - Image filenames are case-sensitive on the deployed host (Cloudflare Pages runs Linux) — always match `<img src>` casing to the actual file on disk exactly, even though it won't error locally on a Mac.
-- Don't reintroduce the old duplicate carousel + static gallery pattern — the redundant static `.case-study-gallery` block was deliberately removed from the 6 product-design pages in favor of the carousel alone.
+- Don't reintroduce a top-of-page carousel or a static `.case-study-gallery` block on case study pages; images belong inline as `.case-study-figure`s. The `.carousel` component is still used inside a figure for overview + close-up sets.
 - Functional/interactive components (carousel, nav) should never be gated behind the scroll-reveal fade-in — only decorative content should use `.reveal`. This caused a real bug once (carousel appearing "broken" because it was invisible pre-scroll).
