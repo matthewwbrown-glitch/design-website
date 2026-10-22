@@ -703,28 +703,44 @@ blockquote {
   z-index: 2;
 }
 
-.profile-badge svg {
+/* Stitching: a ring of small round dots that slowly turns */
+.badge-stitch {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  overflow: visible;
-  animation: badge-spin 24s linear infinite;
+  animation: badge-spin 40s linear infinite;
 }
 
-.profile-badge text {
-  fill: var(--beige);
-  font-family: var(--font-sans);
-  font-size: 8.4px;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+.badge-stitch circle {
+  fill: none;
+  stroke: var(--beige);
+  stroke-width: 2.6;
+  stroke-linecap: round;
+  stroke-dasharray: 0.001 0.999; /* pathLength=48: exactly 48 evenly spaced dots */
 }
 
-.profile-badge img {
-  width: 30%;
+/* The logo's two circles breathe in turn, very gently */
+.badge-mark {
+  width: 32%;
   height: auto;
-  filter: invert(1);
+  overflow: visible;
 }
+
+.badge-mark circle {
+  fill: var(--bright-white);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mark-breathe 4.8s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+
+.badge-mark .mark-small {
+  animation-name: mark-breathe-small;
+  animation-delay: -2.4s;
+}
+
+@keyframes mark-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
+@keyframes mark-breathe-small { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
 
 @keyframes badge-spin { to { transform: rotate(360deg); } }
 
@@ -1384,7 +1400,8 @@ blockquote {
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
   .tab-track { transition: none; }
-  .profile-badge svg { animation: none; }
+  .badge-stitch,
+  .badge-mark circle { animation: none; }
   .cs-cards.is-open .work-card,
   .password-gate-content.is-unlocked .work-card,
   .gate-out,
