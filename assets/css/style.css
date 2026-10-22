@@ -1363,9 +1363,8 @@ blockquote {
     padding: var(--space-1) var(--gutter) var(--space-3);
   }
 
-  .main-nav a { display: block; padding: 14px 0; }
+  .main-nav a { display: block; width: fit-content; padding: 14px 0; }
 
-  .main-nav a[aria-current="page"] { background-image: none; color: var(--beige); }
 
   .nav-toggle { display: block; }
 
@@ -1461,3 +1460,12 @@ blockquote {
 }
 
 .home-principles { --sketch-line: var(--sketch-black); }
+
+/* Mobile menu: the current page keeps its brush underline, sized to the words only */
+@media (max-width: 720px) {
+  .main-nav a[aria-current="page"] {
+    color: var(--beige);
+    padding-bottom: 18px;
+    background-position: left bottom 8px;
+  }
+}
