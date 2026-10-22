@@ -739,8 +739,8 @@ blockquote {
   animation-delay: -2.4s;
 }
 
-@keyframes mark-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.06); } }
-@keyframes mark-breathe-small { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.22); } }
+@keyframes mark-breathe { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.16); } }
+@keyframes mark-breathe-small { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.5); } }
 
 @keyframes badge-spin { to { transform: rotate(360deg); } }
 
