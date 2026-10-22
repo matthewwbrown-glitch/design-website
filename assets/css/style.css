@@ -405,6 +405,10 @@ section.section-heading h2 {
   padding-top: var(--space-xs);
 }
 
+.case-study-figure .carousel {
+  margin: 0;
+}
+
 .case-study-figure + .case-study-figure {
   margin-top: var(--space-sm);
 }
