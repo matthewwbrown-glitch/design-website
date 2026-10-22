@@ -4,13 +4,26 @@
    ========================================================= */
 
 :root {
-  --color-text: #333333;
-  --color-text-muted: #6b6b6b;
-  --color-bg: #fafafa;
-  --color-bg-alt: #f1f1f1;
-  --color-border: #e2e2e2;
-  --color-accent: #2f6fed;
-  --color-accent-hover: #1d4fbf;
+  /* Dark theme, from the Matthew Brown Design System (tokens.json, "dark") */
+  color-scheme: dark;
+  --color-text: #e6e6e6;
+  --color-text-muted: #a3a3a3;
+  --color-bg: #161616;
+  --color-bg-alt: #222222;
+  --color-surface: #1e1e1e;
+  --color-border: #333333;
+  --color-accent: #6b9bff;
+  --color-accent-hover: #9dbcff;
+  --color-accent-light: #4f84f5;
+  --color-on-accent: #0f1a33;
+  --color-error: #ff7b7b;
+  --color-overlay: rgba(30, 30, 30, 0.9);
+
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-focus-glow: 0 0 0 3px rgba(107, 155, 255, 0.25);
+  --shadow-button: 0 4px 16px rgba(107, 155, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  --shadow-button-hover: 0 10px 28px rgba(107, 155, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  --shadow-button-active: 0 4px 14px rgba(107, 155, 255, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 
   --font-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
@@ -150,6 +163,11 @@ blockquote {
   display: block;
 }
 
+/* Dark theme: the logo PNG is black ink, so invert it to read on color-bg. */
+.site-logo-mark {
+  filter: invert(1);
+}
+
 .main-nav ul {
   list-style: none;
   margin: 0;
@@ -217,13 +235,13 @@ blockquote {
   border: 1px solid var(--color-border);
   border-radius: 4px;
   overflow: hidden;
-  background: #fff;
+  background: var(--color-surface);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .work-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow-card-hover);
   text-decoration: none;
 }
 
@@ -523,7 +541,7 @@ section.section-heading h2 {
   justify-content: center;
   border-radius: 50%;
   border: 1px solid var(--color-border);
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-overlay);
   color: var(--color-text);
   font-size: 1rem;
   line-height: 1;
@@ -533,7 +551,7 @@ section.section-heading h2 {
 }
 
 .carousel-arrow:hover {
-  background: #fff;
+  background: var(--color-surface);
   color: var(--color-accent);
   text-decoration: none;
 }
@@ -919,7 +937,7 @@ section.section-heading h2 {
   font-family: var(--font-body);
   font-size: var(--text-base);
   color: var(--color-text);
-  background: #fff;
+  background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 4px;
   outline: none;
@@ -928,11 +946,11 @@ section.section-heading h2 {
 
 .password-gate-form input[type="password"]:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.12);
+  box-shadow: var(--shadow-focus-glow);
 }
 
 .password-gate-form input[type="password"].is-error {
-  border-color: #d64545;
+  border-color: var(--color-error);
 }
 
 .password-gate-form button {
@@ -946,8 +964,8 @@ section.section-heading h2 {
   font-size: var(--text-base);
   font-weight: 600;
   letter-spacing: 0.01em;
-  color: #fff;
-  background: linear-gradient(135deg, #4b83f0 0%, var(--color-accent) 50%, var(--color-accent-hover) 100%);
+  color: var(--color-on-accent);
+  background: linear-gradient(135deg, var(--color-accent-light) 0%, var(--color-accent) 50%, var(--color-accent-hover) 100%);
   background-size: 180% 180%;
   background-position: 0% 50%;
   border: none;
@@ -955,7 +973,7 @@ section.section-heading h2 {
   cursor: pointer;
   overflow: hidden;
   isolation: isolate;
-  box-shadow: 0 4px 16px rgba(47, 111, 237, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: var(--shadow-button);
   transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.5s ease;
 }
 
@@ -980,7 +998,7 @@ section.section-heading h2 {
 .password-gate-form button:hover {
   background-position: 100% 50%;
   transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(47, 111, 237, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-button-hover);
 }
 
 .password-gate-form button:hover::before {
@@ -993,7 +1011,7 @@ section.section-heading h2 {
 
 .password-gate-form button:active {
   transform: translateY(0) scale(0.97);
-  box-shadow: 0 4px 14px rgba(47, 111, 237, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-button-active);
 }
 
 .password-gate-form button:focus-visible {
@@ -1002,7 +1020,7 @@ section.section-heading h2 {
 }
 
 .password-gate-error {
-  color: #d64545;
+  color: var(--color-error);
   font-size: var(--text-xs);
   min-height: 1.2em;
   margin: 0;
