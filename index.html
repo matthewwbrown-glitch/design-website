@@ -22,9 +22,8 @@
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">&#9776;</button>
       <nav class="main-nav">
         <ul>
-          <li><a href="index.html" aria-current="page">Product Design</a></li>
-          <li><a href="visual-design.html">Visual Design</a></li>
-          <li><a href="case-studies.html">Case Studies</a></li>
+          <li><a href="index.html#work" aria-current="page">Work</a></li>
+          <!-- Hidden 2026-10-22: <li><a href="index.html">Product Design</a></li> <li><a href="visual-design.html">Visual Design</a></li> -->
           <li><a href="index.html#about">About</a></li>
         </ul>
       </nav>
@@ -44,14 +43,17 @@
     <section class="home-work" id="work">
       <div class="container">
         <div class="tablist" role="tablist" aria-label="Work">
-          <button class="tab" id="tab-work" role="tab" type="button" aria-selected="true" aria-controls="panel-work">Work</button>
-          <button class="tab" id="tab-case-studies" role="tab" type="button" aria-selected="false" aria-controls="panel-case-studies" tabindex="-1">Case studies</button>
+          <button class="tab" id="tab-case-studies" role="tab" type="button" aria-selected="true" aria-controls="panel-case-studies">Work</button>
+          <!-- Hidden 2026-10-22: the old public Work tab and the Visual design tab.
+          <button class="tab" id="tab-work" role="tab" type="button" aria-selected="false" aria-controls="panel-work" tabindex="-1">Work</button>
           <button class="tab" id="tab-visual" role="tab" type="button" aria-selected="false" aria-controls="panel-visual" tabindex="-1">Visual design</button>
+          -->
         </div>
 
         <div class="tab-viewport">
           <div class="tab-track">
 
+            <!-- Hidden 2026-10-22: old public Work panel (Workflow Designer moved into Work below).
             <div class="tab-panel" id="panel-work" role="tabpanel" aria-labelledby="tab-work" aria-hidden="false">
               <div class="work-grid">
                 <a class="work-card" href="projects/workflow-designer.html">
@@ -91,11 +93,12 @@
                 </a>
                       </div>
             </div>
+            -->
 
-            <div class="tab-panel" id="panel-case-studies" role="tabpanel" aria-labelledby="tab-case-studies" aria-hidden="true">
+            <div class="tab-panel" id="panel-case-studies" role="tabpanel" aria-labelledby="tab-case-studies" aria-hidden="false">
               <div class="cs-stage">
                 <form class="cs-gate" id="csGate" autocomplete="off">
-                  <p>In-depth write-ups of product design work at Meta and Atlassian. Enter the password to view them.</p>
+                  <p>In-depth write-ups of product design work at Meta, Atlassian and Nintex. Enter the password to view them.</p>
                   <div class="pw-row">
                     <label for="csPassword" class="sr-only">Password</label>
                     <input type="password" id="csPassword" name="password" placeholder="Password" autocomplete="current-password" required>
@@ -104,20 +107,6 @@
                   <p class="pw-error" id="csError" role="alert"></p>
                 </form>
                 <div class="work-grid cs-cards is-locked" id="csCards" aria-hidden="true">
-                <a class="work-card" href="projects/offsite-to-onsite-migration.html">
-                    <div class="thumb"><img src="assets/images/case-studies/offsite-to-onsite-migration/04.jpg" alt="Shopify Meta App overview after the update"></div>
-                    <div class="card-body">
-                      <h3>Offsite to Onsite Migration</h3>
-                      <p class="meta">Driving $8B+ TAM growth for Shopify merchants</p>
-                    </div>
-                  </a>
-                <a class="work-card" href="projects/new-demand.html">
-                  <div class="thumb"><img src="assets/images/case-studies/new-demand/cover.jpg" alt="Shopify Meta App overview with the one-click Create Ad Campaign modal"></div>
-                  <div class="card-body">
-                    <h3>New Demand</h3>
-                    <p class="meta">Expanding market opportunities for merchants</p>
-                  </div>
-                </a>
                 <a class="work-card" href="projects/shops-onboarding.html">
                   <div class="thumb"><video autoplay loop muted playsinline preload="metadata" poster="assets/images/case-studies/shops-onboarding/cover-poster.jpg" aria-label="Adding the Facebook and Instagram app to Shopify"><source src="assets/images/case-studies/shops-onboarding/cover.webm" type="video/webm"><source src="assets/images/case-studies/shops-onboarding/cover.mp4" type="video/mp4"></video></div>
                   <div class="card-body">
@@ -132,10 +121,32 @@
                     <p class="meta">Cutting regrettable churn from 27% to 8%</p>
                   </div>
                 </a>
+                <a class="work-card" href="projects/new-demand.html">
+                  <div class="thumb"><img src="assets/images/case-studies/new-demand/cover.jpg" alt="Shopify Meta App overview with the one-click Create Ad Campaign modal"></div>
+                  <div class="card-body">
+                    <h3>New Demand</h3>
+                    <p class="meta">Expanding market opportunities for merchants</p>
+                  </div>
+                </a>
+                <a class="work-card" href="projects/offsite-to-onsite-migration.html">
+                    <div class="thumb"><img src="assets/images/case-studies/offsite-to-onsite-migration/04.jpg" alt="Shopify Meta App overview after the update"></div>
+                    <div class="card-body">
+                      <h3>Offsite to Onsite Migration</h3>
+                      <p class="meta">Driving $8B+ TAM growth for Shopify merchants</p>
+                    </div>
+                  </a>
+                <a class="work-card" href="projects/workflow-designer.html">
+                  <div class="thumb"><img src="assets/images/workflow-designer/cover-nintex-workflow.jpg" alt="Nintex Workflow logo"></div>
+                  <div class="card-body">
+                    <h3>Workflow Designer</h3>
+                    <p class="meta">Drag-and-drop workflow automation</p>
+                  </div>
+                </a>
                       </div>
               </div>
             </div>
 
+            <!-- Hidden 2026-10-22: Visual design panel.
             <div class="tab-panel" id="panel-visual" role="tabpanel" aria-labelledby="tab-visual" aria-hidden="true">
               <div class="work-grid">
                 <a class="work-card" href="projects/metro-trains.html">
@@ -183,6 +194,7 @@
                 </a>
                       </div>
             </div>
+            -->
 
           </div>
         </div>
