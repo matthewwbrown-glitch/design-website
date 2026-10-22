@@ -755,6 +755,13 @@ blockquote {
 
 .about-details > .section-heading { max-width: 960px; }
 
+.about-summary {
+  max-width: 30em;
+  margin: 0;
+  font-size: clamp(20px, 2.2vw, 28px);
+  line-height: 1.4;
+}
+
 .about-details h4 {
   margin: var(--space-6) 0 var(--space-3);
   font-size: 13px;
