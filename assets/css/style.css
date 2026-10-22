@@ -34,6 +34,11 @@
   --space-8: 144px;
   --section-pad: clamp(96px, 10vw, 144px);
 
+  /* Pencil-sketch underlines: three slightly wobbly, semi-transparent strokes */
+  --sketch-black: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 8' preserveAspectRatio='none'%3E%3Cpath d='M0.5 4.08 Q0.5 4.08 6.7 4.00 Q12.9 3.93 19.2 4.09 Q25.4 4.26 31.6 4.04 Q37.8 3.83 44.0 3.98 Q50.2 4.13 56.5 4.05 Q62.7 3.98 68.9 3.86 Q75.1 3.74 81.3 3.89 Q87.6 4.03 93.8 3.85 Q100.0 3.68 106.2 3.80 Q112.4 3.93 118.7 3.79 Q124.9 3.65 131.1 3.64 Q137.3 3.64 143.5 3.74 Q149.8 3.85 156.0 3.98 Q162.2 4.10 168.4 3.85 Q174.6 3.59 180.8 3.61 Q187.1 3.63 193.3 3.76 Q199.5 3.89 205.7 3.99 Q211.9 4.09 218.2 3.95 Q224.4 3.80 230.6 3.73 Q236.8 3.65 243.0 3.84 Q249.2 4.03 255.5 3.70 Q261.7 3.36 267.9 3.63 Q274.1 3.90 280.3 3.69 Q286.6 3.48 292.8 3.41 L299.0 3.35' fill='none' stroke='%232d2926' stroke-width='1.3' stroke-opacity='0.85' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M3.0 4.56 Q3.0 4.56 9.1 4.65 Q15.2 4.75 21.3 4.99 Q27.4 5.23 33.5 4.95 Q39.6 4.68 45.7 4.87 Q51.8 5.06 57.9 5.09 Q64.0 5.13 70.1 5.02 Q76.2 4.91 82.4 5.00 Q88.5 5.09 94.6 4.88 Q100.7 4.67 106.8 4.68 Q112.9 4.69 119.0 4.77 Q125.1 4.84 131.2 5.07 Q137.3 5.29 143.4 5.19 Q149.5 5.08 155.6 5.04 Q161.7 5.00 167.8 5.14 Q173.9 5.27 180.0 5.22 Q186.1 5.17 192.2 5.11 Q198.3 5.05 204.4 5.29 Q210.5 5.52 216.6 5.49 Q222.8 5.45 228.9 5.26 Q235.0 5.07 241.1 5.22 Q247.2 5.38 253.3 5.37 Q259.4 5.36 265.5 5.53 Q271.6 5.70 277.7 5.64 Q283.8 5.59 289.9 5.40 L296.0 5.21' fill='none' stroke='%232d2926' stroke-width='0.8' stroke-opacity='0.45' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M12.0 3.98 Q12.0 3.98 19.8 3.56 Q27.6 3.13 35.3 3.29 Q43.1 3.45 50.9 3.63 Q58.7 3.81 66.4 3.51 Q74.2 3.22 82.0 3.40 Q89.8 3.57 97.6 3.36 Q105.3 3.14 113.1 3.46 Q120.9 3.78 128.7 3.84 Q136.4 3.90 144.2 3.81 Q152.0 3.72 159.8 3.88 Q167.6 4.04 175.3 3.77 Q183.1 3.50 190.9 3.70 Q198.7 3.90 206.4 3.85 Q214.2 3.81 222.0 3.81 Q229.8 3.81 237.6 3.76 Q245.3 3.71 253.1 3.91 Q260.9 4.11 268.7 4.17 Q276.4 4.23 284.2 4.00 L292.0 3.77' fill='none' stroke='%232d2926' stroke-width='0.6' stroke-opacity='0.3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --sketch-white: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 8' preserveAspectRatio='none'%3E%3Cpath d='M0.5 4.08 Q0.5 4.08 6.7 4.00 Q12.9 3.93 19.2 4.09 Q25.4 4.26 31.6 4.04 Q37.8 3.83 44.0 3.98 Q50.2 4.13 56.5 4.05 Q62.7 3.98 68.9 3.86 Q75.1 3.74 81.3 3.89 Q87.6 4.03 93.8 3.85 Q100.0 3.68 106.2 3.80 Q112.4 3.93 118.7 3.79 Q124.9 3.65 131.1 3.64 Q137.3 3.64 143.5 3.74 Q149.8 3.85 156.0 3.98 Q162.2 4.10 168.4 3.85 Q174.6 3.59 180.8 3.61 Q187.1 3.63 193.3 3.76 Q199.5 3.89 205.7 3.99 Q211.9 4.09 218.2 3.95 Q224.4 3.80 230.6 3.73 Q236.8 3.65 243.0 3.84 Q249.2 4.03 255.5 3.70 Q261.7 3.36 267.9 3.63 Q274.1 3.90 280.3 3.69 Q286.6 3.48 292.8 3.41 L299.0 3.35' fill='none' stroke='%23f4f5f0' stroke-width='1.3' stroke-opacity='0.85' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M3.0 4.56 Q3.0 4.56 9.1 4.65 Q15.2 4.75 21.3 4.99 Q27.4 5.23 33.5 4.95 Q39.6 4.68 45.7 4.87 Q51.8 5.06 57.9 5.09 Q64.0 5.13 70.1 5.02 Q76.2 4.91 82.4 5.00 Q88.5 5.09 94.6 4.88 Q100.7 4.67 106.8 4.68 Q112.9 4.69 119.0 4.77 Q125.1 4.84 131.2 5.07 Q137.3 5.29 143.4 5.19 Q149.5 5.08 155.6 5.04 Q161.7 5.00 167.8 5.14 Q173.9 5.27 180.0 5.22 Q186.1 5.17 192.2 5.11 Q198.3 5.05 204.4 5.29 Q210.5 5.52 216.6 5.49 Q222.8 5.45 228.9 5.26 Q235.0 5.07 241.1 5.22 Q247.2 5.38 253.3 5.37 Q259.4 5.36 265.5 5.53 Q271.6 5.70 277.7 5.64 Q283.8 5.59 289.9 5.40 L296.0 5.21' fill='none' stroke='%23f4f5f0' stroke-width='0.8' stroke-opacity='0.45' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M12.0 3.98 Q12.0 3.98 19.8 3.56 Q27.6 3.13 35.3 3.29 Q43.1 3.45 50.9 3.63 Q58.7 3.81 66.4 3.51 Q74.2 3.22 82.0 3.40 Q89.8 3.57 97.6 3.36 Q105.3 3.14 113.1 3.46 Q120.9 3.78 128.7 3.84 Q136.4 3.90 144.2 3.81 Q152.0 3.72 159.8 3.88 Q167.6 4.04 175.3 3.77 Q183.1 3.50 190.9 3.70 Q198.7 3.90 206.4 3.85 Q214.2 3.81 222.0 3.81 Q229.8 3.81 237.6 3.76 Q245.3 3.71 253.1 3.91 Q260.9 4.11 268.7 4.17 Q276.4 4.23 284.2 4.00 L292.0 3.77' fill='none' stroke='%23f4f5f0' stroke-width='0.6' stroke-opacity='0.3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+  --sketch-beige: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 8' preserveAspectRatio='none'%3E%3Cpath d='M0.5 4.08 Q0.5 4.08 6.7 4.00 Q12.9 3.93 19.2 4.09 Q25.4 4.26 31.6 4.04 Q37.8 3.83 44.0 3.98 Q50.2 4.13 56.5 4.05 Q62.7 3.98 68.9 3.86 Q75.1 3.74 81.3 3.89 Q87.6 4.03 93.8 3.85 Q100.0 3.68 106.2 3.80 Q112.4 3.93 118.7 3.79 Q124.9 3.65 131.1 3.64 Q137.3 3.64 143.5 3.74 Q149.8 3.85 156.0 3.98 Q162.2 4.10 168.4 3.85 Q174.6 3.59 180.8 3.61 Q187.1 3.63 193.3 3.76 Q199.5 3.89 205.7 3.99 Q211.9 4.09 218.2 3.95 Q224.4 3.80 230.6 3.73 Q236.8 3.65 243.0 3.84 Q249.2 4.03 255.5 3.70 Q261.7 3.36 267.9 3.63 Q274.1 3.90 280.3 3.69 Q286.6 3.48 292.8 3.41 L299.0 3.35' fill='none' stroke='%23d5ba98' stroke-width='1.3' stroke-opacity='0.85' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M3.0 4.56 Q3.0 4.56 9.1 4.65 Q15.2 4.75 21.3 4.99 Q27.4 5.23 33.5 4.95 Q39.6 4.68 45.7 4.87 Q51.8 5.06 57.9 5.09 Q64.0 5.13 70.1 5.02 Q76.2 4.91 82.4 5.00 Q88.5 5.09 94.6 4.88 Q100.7 4.67 106.8 4.68 Q112.9 4.69 119.0 4.77 Q125.1 4.84 131.2 5.07 Q137.3 5.29 143.4 5.19 Q149.5 5.08 155.6 5.04 Q161.7 5.00 167.8 5.14 Q173.9 5.27 180.0 5.22 Q186.1 5.17 192.2 5.11 Q198.3 5.05 204.4 5.29 Q210.5 5.52 216.6 5.49 Q222.8 5.45 228.9 5.26 Q235.0 5.07 241.1 5.22 Q247.2 5.38 253.3 5.37 Q259.4 5.36 265.5 5.53 Q271.6 5.70 277.7 5.64 Q283.8 5.59 289.9 5.40 L296.0 5.21' fill='none' stroke='%23d5ba98' stroke-width='0.8' stroke-opacity='0.45' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3Cpath d='M12.0 3.98 Q12.0 3.98 19.8 3.56 Q27.6 3.13 35.3 3.29 Q43.1 3.45 50.9 3.63 Q58.7 3.81 66.4 3.51 Q74.2 3.22 82.0 3.40 Q89.8 3.57 97.6 3.36 Q105.3 3.14 113.1 3.46 Q120.9 3.78 128.7 3.84 Q136.4 3.90 144.2 3.81 Q152.0 3.72 159.8 3.88 Q167.6 4.04 175.3 3.77 Q183.1 3.50 190.9 3.70 Q198.7 3.90 206.4 3.85 Q214.2 3.81 222.0 3.81 Q229.8 3.81 237.6 3.76 Q245.3 3.71 253.1 3.91 Q260.9 4.11 268.7 4.17 Q276.4 4.23 284.2 4.00 L292.0 3.77' fill='none' stroke='%23d5ba98' stroke-width='0.6' stroke-opacity='0.3' stroke-linecap='round' vector-effect='non-scaling-stroke'/%3E%3C/svg%3E");
+
   --ease: cubic-bezier(.2, .7, .2, 1);
   --ease-slide: cubic-bezier(.65, 0, .35, 1);
 }
@@ -133,8 +138,7 @@ blockquote {
 .tagline-label {
   display: inline-block;
   margin: 0 0 var(--space-5);
-  padding: 0 var(--space-2) var(--space-1) 0;
-  border-bottom: 2px solid currentColor;
+  padding: 0 var(--space-2) 12px 0;
   font-size: 13px;
   font-weight: 700;
   line-height: 1;
@@ -146,8 +150,7 @@ blockquote {
 .text-link {
   display: inline-flex;
   gap: 12px;
-  padding-bottom: 6px;
-  border-bottom: 2px solid currentColor;
+  padding-bottom: 10px;
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -220,8 +223,8 @@ blockquote {
 .main-nav a:hover { color: var(--beige); }
 
 .main-nav a[aria-current="page"] {
-  box-shadow: inset 0 -2px 0 var(--beige);
-  padding-bottom: 6px;
+  padding-bottom: 8px;
+  --sketch-line: var(--sketch-beige);
 }
 
 .nav-toggle {
@@ -256,8 +259,7 @@ blockquote {
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  border-bottom: 2px solid var(--beige);
-  padding-bottom: 2px;
+  padding-bottom: 6px;
   margin-left: 6px;
 }
 
@@ -377,7 +379,6 @@ blockquote {
   line-height: 1.45;
 }
 
-.home-hero .text-link { border-bottom-color: var(--beige); }
 
 /* Tabs: Work / Case studies / Visual design, sliding left to right */
 .home-work { background: var(--bright-white); }
@@ -409,15 +410,15 @@ blockquote {
   text-transform: uppercase;
   line-height: 1;
   color: var(--gray-deep);
-  box-shadow: inset 0 -2px 0 transparent;
-  transition: color .2s ease, box-shadow .2s ease;
+  background-size: 0% 7px;
+  transition: color .2s ease, background-size .35s var(--ease);
 }
 
 .tab:hover { color: var(--black-c); }
 
 .tab[aria-selected="true"] {
   color: var(--black-c);
-  box-shadow: inset 0 -2px 0 var(--black-c);
+  background-size: 100% 7px;
 }
 
 .tab-viewport { overflow: hidden; }
@@ -809,8 +810,7 @@ blockquote {
 .case-study-header .meta {
   display: inline-block;
   margin: 0 0 var(--space-5);
-  padding: 0 var(--space-2) var(--space-1) 0;
-  border-bottom: 2px solid var(--bright-white);
+  padding: 0 var(--space-2) 12px 0;
   font-size: 13px;
   font-weight: 700;
   line-height: 1.3;
@@ -1173,8 +1173,7 @@ blockquote {
 .section-heading h2 {
   display: inline-block;
   margin: 0 0 var(--space-5);
-  padding: 0 var(--space-2) var(--space-1) 0;
-  border-bottom: 2px solid var(--black-c);
+  padding: 0 var(--space-2) 12px 0;
   font-size: 13px;
   font-weight: 700;
   line-height: 1;
@@ -1365,7 +1364,7 @@ blockquote {
 
   .main-nav a { display: block; padding: 14px 0; }
 
-  .main-nav a[aria-current="page"] { box-shadow: none; color: var(--beige); }
+  .main-nav a[aria-current="page"] { background-image: none; color: var(--beige); }
 
   .nav-toggle { display: block; }
 
@@ -1413,3 +1412,51 @@ blockquote {
 .password-gate-content .work-grid {
   grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
 }
+
+/* ---------- Pencil-sketch underlines ----------
+   Labels, links, the active tab and the current nav item are underlined with a
+   hand-drawn graphite line instead of a solid rule. --sketch-line picks the ink:
+   black on white and beige grounds, white on black, beige for links on black. */
+
+.section-label,
+.tagline-label,
+.section-heading h2,
+.case-study-header .meta,
+.text-link,
+.site-footer a,
+.main-nav a[aria-current="page"],
+.tab {
+  background-image: var(--sketch-line, var(--sketch-black));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+}
+
+.section-label,
+.tagline-label,
+.section-heading h2,
+.case-study-header .meta,
+.text-link,
+.site-footer a,
+.main-nav a[aria-current="page"] {
+  background-size: 100% 7px;
+}
+
+.home-hero,
+.home-profile,
+.hero,
+.case-study-header,
+.visual-project-intro,
+.visual-stack-intro,
+.site-header,
+.site-footer {
+  --sketch-line: var(--sketch-white);
+}
+
+.home-hero .text-link,
+.home-profile .text-link,
+.site-footer a,
+.site-header .main-nav a[aria-current="page"] {
+  --sketch-line: var(--sketch-beige);
+}
+
+.home-principles { --sketch-line: var(--sketch-black); }
