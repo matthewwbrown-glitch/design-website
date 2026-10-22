@@ -629,7 +629,7 @@ blockquote {
   position: relative;
   min-height: max(560px, min(75vw, 1200px)); /* the photo's own 4:3, so the headline lands on the sign, not the lettering */
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end; /* headline sits low, over the jacket, so the face stays clear */
   overflow-x: clip;
   isolation: isolate;
 }
@@ -641,7 +641,7 @@ blockquote {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: 50% 100%;
+  object-position: 50% 18%; /* face high in the frame, headline below it */
 }
 
 /* Film grain, like a newsprint halftone: an SVG noise tile blended over the photo */
@@ -1346,7 +1346,7 @@ blockquote {
   body { font-size: 17px; }
 
   .profile-visual { min-height: 640px; }
-  .profile-photo { object-position: 46% 100%; }
+  .profile-photo { object-position: 70% 20%; }
   .profile-tag { font-size: 10px; letter-spacing: 0.24em; right: 14px; }
 
   .main-nav {
