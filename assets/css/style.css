@@ -326,6 +326,7 @@ blockquote {
   content: "\2192";
   grid-column: 2;
   grid-row: 1;
+  padding-right: 8px; /* room for the glyph and its 6px hover nudge inside the tab panel's clip */
   font-size: 22px;
   line-height: 1.1;
   transition: transform .2s ease;
@@ -442,7 +443,10 @@ blockquote {
 .tab-panel .work-grid { padding: 0; }
 
 /* Case studies tab: password field and cards share one cell so the height never changes */
-.cs-stage { display: grid; }
+.cs-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* without this the column sizes to the 420px cards and overflows on phones */
+}
 
 .cs-stage > * { grid-area: 1 / 1; }
 
