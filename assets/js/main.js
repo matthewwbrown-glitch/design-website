@@ -236,3 +236,20 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// Logo mark: breathe while hovered or focused, and finish the current cycle on leave
+document.addEventListener('DOMContentLoaded', function () {
+  var link = document.querySelector('.site-logo a');
+  var mark = link && link.querySelector('.site-logo-mark');
+  if (!mark || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var active = false;
+  function start() { active = true; mark.classList.add('is-breathing'); }
+  function stop() { active = false; }
+  link.addEventListener('mouseenter', start);
+  link.addEventListener('mouseleave', stop);
+  link.addEventListener('focus', start);
+  link.addEventListener('blur', stop);
+  mark.querySelector('.mark-small').addEventListener('animationiteration', function () {
+    if (!active) mark.classList.remove('is-breathing');
+  });
+});

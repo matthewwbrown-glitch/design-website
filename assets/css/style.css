@@ -197,7 +197,34 @@ blockquote {
 .site-logo-mark {
   width: 22px;
   height: 22px;
-  filter: invert(1);
+  flex: none;
+  overflow: visible;
+}
+
+/* Hover: the mark's two circles swell in turn and drift apart, the same breath as
+   the Profile badge. main.js adds .is-breathing and lets each cycle finish. */
+.site-logo-mark circle {
+  fill: currentColor;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.site-logo-mark.is-breathing circle {
+  animation: logo-breathe-big 1.6s cubic-bezier(.45, 0, .55, 1) infinite;
+}
+
+.site-logo-mark.is-breathing .mark-small {
+  animation-name: logo-breathe-small;
+}
+
+@keyframes logo-breathe-big {
+  0%, 70%, 100% { transform: none; }
+  35% { transform: translate(3px, -3px) scale(1.16); }
+}
+
+@keyframes logo-breathe-small {
+  0%, 30%, 100% { transform: none; }
+  65% { transform: translate(-4px, 4px) scale(1.5); }
 }
 
 .main-nav ul {
@@ -1407,7 +1434,8 @@ blockquote {
   .reveal { opacity: 1; transform: none; transition: none; }
   .tab-track { transition: none; }
   .badge-stitch,
-  .badge-mark circle { animation: none; }
+  .badge-mark circle,
+  .site-logo-mark circle { animation: none; }
   .cs-cards.is-open .work-card,
   .password-gate-content.is-unlocked .work-card,
   .gate-out,
