@@ -307,14 +307,16 @@ blockquote {
   background: #e7e7e1;
 }
 
-.work-card .thumb img {
+.work-card .thumb img,
+.work-card .thumb video {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform .6s var(--ease);
 }
 
-.work-card:hover .thumb img { transform: scale(1.03); }
+.work-card:hover .thumb img,
+.work-card:hover .thumb video { transform: scale(1.03); }
 
 .work-card .card-body {
   display: grid;
