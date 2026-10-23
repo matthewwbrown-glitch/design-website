@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // case-studies.html). A locked card opens the password dialog; the right password goes
 // straight into that case study and unlocks the rest for this session.
 document.addEventListener('DOMContentLoaded', function () {
-  var PASSWORD_HASH = '6cba804ffe33a6adec8f8b9b8af0ffb436cdbed47757a23dc15ffd56050e7cab';
+  var PASSWORD_HASH = '1360b8cad8b9b40866157d8f85c72c79f5903737f39596e4b5fc861fc5a3b43e';
   var SESSION_KEY = 'caseStudiesUnlocked';
   var root = document.documentElement;
 
