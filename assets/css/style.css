@@ -884,15 +884,11 @@ blockquote {
 
 .back-link:hover { color: var(--beige); }
 
-/* End-of-page CTA: a full-bleed black band that takes the reader back to Work */
+/* End-of-page back link: the same "← Back to Work" as the top of the page, on a full-bleed black band */
 .case-study-end {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3, 16px);
   position: relative;
   isolation: isolate;
-  padding: clamp(64px, 8vw, 112px) 0;
-  color: var(--bright-white);
+  padding: clamp(32px, 5vw, 64px) 0;
 }
 
 /* One full-width black ground (body clips the overflow), so no seam shows at the column edge */
@@ -904,34 +900,13 @@ blockquote {
   background: var(--black-c);
 }
 
-.case-study-end-label {
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--neutral-gray);
+/* Same type and hover as the top link; the band comes from the wrapper */
+.case-study-end .back-link {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  clip-path: none;
 }
-
-.case-study-end-title {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.3em;
-  font-size: clamp(36px, 5vw, 72px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: 0.01em;
-  text-transform: uppercase;
-  transition: color .15s ease;
-}
-
-.case-study-end-arrow {
-  color: var(--beige);
-  transition: transform .2s var(--ease, ease);
-}
-
-.case-study-end:hover .case-study-end-title { color: var(--beige); }
-.case-study-end:hover .case-study-end-arrow { transform: translateX(-6px); }
-.case-study-end:focus-visible { outline: 2px solid var(--beige); outline-offset: -2px; }
 
 .case-study-header {
   padding: clamp(40px, 6vw, 72px) 0 clamp(72px, 9vw, 128px);
