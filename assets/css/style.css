@@ -1567,7 +1567,15 @@ blockquote {
   .profile-visual { min-height: 820px; }
   .profile-photo,
   .profile-grain { height: 62%; }
-  .profile-photo { object-position: 46% 35%; }
+  .profile-photo {
+    object-position: 46% 35%;
+    /* Zoom in on Matthew: grow from the bottom edge so the crop trims the empty wall above
+       his head, not the photo's base, where the headline and badge sit */
+    transform: scale(1.3);
+    transform-origin: 48% 100%;
+  }
+  /* Clip the zoom at the top (over the section above) but let the badge hang below */
+  .profile-visual { clip-path: inset(0 0 -50vh 0); }
 }
 
 /* Influences & Craft: hairline-separated rows instead of bullets */
