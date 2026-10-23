@@ -35,8 +35,8 @@
 
     <div class="container password-gate" id="passwordGate">
       <div class="password-gate-card">
-        <h1>This section is private</h1>
-        <p class="tagline">Enter the password to view the work.</p>
+        <h1>Password required</h1>
+        <p class="tagline">My Meta work is shared privately. Enter the password to read it.</p>
         <form class="password-gate-form" id="passwordForm" autocomplete="off">
           <label for="passwordInput" class="sr-only">Password</label>
           <input type="password" id="passwordInput" name="password" placeholder="Password" autocomplete="current-password" required>
@@ -123,7 +123,12 @@
       var input = document.getElementById('passwordInput');
       var error = document.getElementById('passwordError');
 
+      // ?next=<slug> comes from a private case study page: go back to it once unlocked.
+      var next = new URLSearchParams(location.search).get('next');
+      if (next && !/^[a-z0-9-]+$/.test(next)) next = null;
+
       function unlock() {
+        if (next) { location.replace('projects/' + next + '.html'); return; }
         gate.classList.add('is-unlocked');
         content.classList.add('is-unlocked');
       }

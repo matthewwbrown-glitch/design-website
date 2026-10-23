@@ -473,31 +473,81 @@ blockquote {
 
 .tab-panel .work-grid { padding: 0; }
 
-/* Case studies tab: password field and cards share one cell. While locked the cards take no
-   space (on phones they stacked four tall under the form); they drop in when it unlocks. */
-.cs-stage {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr); /* without this the column sizes to the 420px cards and overflows on phones */
+/* Work tab: every case study is listed. Meta ones carry a padlock beside the arrow until the
+   password has been entered this session (main.js sets html.cs-unlocked); clicking a locked card
+   opens the password dialog instead of the page. */
+.work-card.is-private .card-body { grid-template-columns: minmax(0, 1fr) auto auto; }
+
+.work-card.is-private .card-body::before {
+  content: "";
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  width: 16px;
+  height: 16px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Crect x='5' y='11' width='14' height='10'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2'%3E%3Crect x='5' y='11' width='14' height='10'/%3E%3Cpath d='M8 11V7a4 4 0 0 1 8 0v4'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
-.cs-stage > * { grid-area: 1 / 1; }
+.work-card.is-private .card-body::after { grid-column: 3; }
 
-.cs-gate {
-  align-self: start;
-  z-index: 1;
+.cs-unlocked .work-card.is-private .card-body { grid-template-columns: minmax(0, 1fr) auto; }
+.cs-unlocked .work-card.is-private .card-body::before { content: none; }
+.cs-unlocked .work-card.is-private .card-body::after { grid-column: 2; }
+
+/* Password dialog: a white sheet on a dimmed page, square, no shadow */
+.pw-dialog {
+  width: min(560px, calc(100vw - 2 * var(--gutter)));
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: var(--bright-white);
+  color: var(--black-c);
+}
+
+.pw-dialog::backdrop { background: rgba(45, 41, 38, 0.72); }
+
+.pw-dialog-form {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  max-width: 760px;
+  gap: var(--space-2);
+  padding: var(--space-5) clamp(24px, 5vw, 48px) var(--space-4);
 }
 
-.cs-gate .pw-row { margin-top: var(--space-3); }
+.pw-dialog-label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
 
-.cs-gate p { margin: 0; max-width: 34em; font-size: clamp(18px, 1.6vw, 20px); line-height: 1.5; }
+.pw-dialog h2 { margin: 0; font-size: clamp(26px, 4vw, 34px); }
 
-.cs-cards.is-locked { display: none; }
+.pw-dialog-form > p:not(.pw-dialog-label):not(.pw-error) { margin: 0; font-size: 17px; line-height: 1.5; }
 
-.is-unlocked-stage .cs-gate { visibility: hidden; pointer-events: none; }
+.pw-dialog .pw-row { margin-top: var(--space-2); }
+
+.pw-dialog-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 44px;
+  height: 44px;
+  appearance: none;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--black-c);
+}
+
+.pw-dialog-close:hover { color: var(--gray-deep); }
 
 /* Password field (home tab and the Case Studies page) */
 .pw-row {
@@ -571,21 +621,15 @@ blockquote {
 .gate-out { animation: gate-out .35s ease forwards; }
 
 /* Cards drop in one after another once unlocked */
-.cs-cards.is-open .work-card,
 .password-gate-content.is-unlocked .work-card {
   opacity: 0;
   animation: card-drop .6s var(--ease) forwards;
 }
 
-.cs-cards.is-open .work-card:nth-child(1),
 .password-gate-content.is-unlocked .work-card:nth-child(1) { animation-delay: .15s; }
-.cs-cards.is-open .work-card:nth-child(2),
 .password-gate-content.is-unlocked .work-card:nth-child(2) { animation-delay: .27s; }
-.cs-cards.is-open .work-card:nth-child(3),
 .password-gate-content.is-unlocked .work-card:nth-child(3) { animation-delay: .39s; }
-.cs-cards.is-open .work-card:nth-child(4),
 .password-gate-content.is-unlocked .work-card:nth-child(4) { animation-delay: .51s; }
-.cs-cards.is-open .work-card:nth-child(5),
 .password-gate-content.is-unlocked .work-card:nth-child(5) { animation-delay: .63s; }
 
 @keyframes gate-shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
@@ -1437,8 +1481,7 @@ blockquote {
   .badge-stitch,
   .badge-mark circle,
   .site-logo-mark circle { animation: none; }
-  .cs-cards.is-open .work-card,
-  .password-gate-content.is-unlocked .work-card,
+    .password-gate-content.is-unlocked .work-card,
   .gate-out,
   .gate-shake { animation: none; opacity: 1; }
 }

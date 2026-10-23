@@ -7,9 +7,9 @@
   <meta name="description" content="Case study: streamlining Shops onboarding in Ads Manager and aligning global stakeholders through a London design sprint.">
   <meta name="robots" content="noindex">
   <script>
-    // Private case study: send visitors who haven't unlocked Case Studies back to the password screen.
-    try { if (sessionStorage.getItem('caseStudiesUnlocked') !== 'true') location.replace('../case-studies.html'); }
-    catch (e) { location.replace('../case-studies.html'); }
+    // Private Meta case study: visitors who haven't entered the password go to the password screen, which brings them back here.
+    try { if (sessionStorage.getItem('caseStudiesUnlocked') !== 'true') location.replace('../case-studies.html?next=shops-onboarding'); }
+    catch (e) { location.replace('../case-studies.html?next=shops-onboarding'); }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

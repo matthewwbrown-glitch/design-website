@@ -178,31 +178,32 @@ document.addEventListener('DOMContentLoaded', function () {
   select(0);
 });
 
-// Home: password gate on the Case studies tab. Same hash and session flag as case-studies.html,
-// so unlocking here also opens the individual case study pages.
+// Work tab: Meta case studies are password protected (same hash and session flag as
+// case-studies.html). A locked card opens the password dialog; the right password goes
+// straight into that case study and unlocks the rest for this session.
 document.addEventListener('DOMContentLoaded', function () {
-  var form = document.getElementById('csGate');
-  var cards = document.getElementById('csCards');
-  if (!form || !cards) return;
   var PASSWORD_HASH = '6cba804ffe33a6adec8f8b9b8af0ffb436cdbed47757a23dc15ffd56050e7cab';
   var SESSION_KEY = 'caseStudiesUnlocked';
-  var input = document.getElementById('csPassword');
-  var error = document.getElementById('csError');
-  var row = form.querySelector('.pw-row');
-  var stage = form.parentNode;
+  var root = document.documentElement;
 
-  function open(animate) {
-    cards.classList.remove('is-locked');
-    if (animate) cards.classList.add('is-open');
-    cards.setAttribute('aria-hidden', 'false');
-    stage.classList.add('is-unlocked-stage');
-    form.setAttribute('aria-hidden', 'true');
-    form.setAttribute('inert', '');
+  function isUnlocked() {
+    try { return sessionStorage.getItem(SESSION_KEY) === 'true'; } catch (e) { return false; }
   }
 
-  var unlocked = false;
-  try { unlocked = sessionStorage.getItem(SESSION_KEY) === 'true'; } catch (e) {}
-  if (unlocked) { open(false); return; }
+  function markUnlocked() {
+    root.classList.add('cs-unlocked');
+    document.querySelectorAll('.lock-note').forEach(function (n) { n.remove(); });
+  }
+
+  if (isUnlocked()) { markUnlocked(); return; }
+
+  var dialog = document.getElementById('pwDialog');
+  if (!dialog || typeof dialog.showModal !== 'function') return; // no dialog: the page itself redirects to the password screen
+  var form = document.getElementById('pwDialogForm');
+  var input = document.getElementById('pwDialogInput');
+  var error = document.getElementById('pwDialogError');
+  var row = form.querySelector('.pw-row');
+  var target = null;
 
   function sha256(text) {
     return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
@@ -211,6 +212,22 @@ document.addEventListener('DOMContentLoaded', function () {
       }).join('');
     });
   }
+
+  document.querySelectorAll('.work-card.is-private').forEach(function (card) {
+    card.addEventListener('click', function (e) {
+      if (isUnlocked() || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+      e.preventDefault();
+      target = card.getAttribute('href');
+      input.value = '';
+      error.textContent = '';
+      row.classList.remove('is-error');
+      dialog.showModal();
+      input.focus();
+    });
+  });
+
+  document.getElementById('pwDialogClose').addEventListener('click', function () { dialog.close(); });
+  dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); }); // backdrop
 
   input.addEventListener('input', function () {
     error.textContent = '';
@@ -222,16 +239,15 @@ document.addEventListener('DOMContentLoaded', function () {
     sha256(input.value).then(function (hash) {
       if (hash === PASSWORD_HASH) {
         try { sessionStorage.setItem(SESSION_KEY, 'true'); } catch (err) {}
-        form.classList.add('gate-out');
-        setTimeout(function () { open(true); }, 350);
+        markUnlocked();
+        location.href = target;
       } else {
         error.textContent = 'Incorrect password. Please try again.';
         row.classList.add('is-error');
         form.classList.remove('gate-shake');
         void form.offsetWidth;
         form.classList.add('gate-shake');
-        input.value = '';
-        input.focus();
+        input.select();
       }
     });
   });

@@ -96,21 +96,11 @@
             -->
 
             <div class="tab-panel" id="panel-case-studies" role="tabpanel" aria-labelledby="tab-case-studies" aria-hidden="false">
-              <div class="cs-stage">
-                <form class="cs-gate" id="csGate" autocomplete="off">
-                  <p>In-depth write-ups of product design work at Meta, Atlassian and Nintex. Enter the password to view them.</p>
-                  <div class="pw-row">
-                    <label for="csPassword" class="sr-only">Password</label>
-                    <input type="password" id="csPassword" name="password" placeholder="Password" autocomplete="current-password" required>
-                    <button type="submit">Unlock</button>
-                  </div>
-                  <p class="pw-error" id="csError" role="alert"></p>
-                </form>
-                <div class="work-grid cs-cards is-locked" id="csCards" aria-hidden="true">
-                <a class="work-card" href="projects/shops-onboarding.html">
+              <div class="work-grid cs-cards">
+                <a class="work-card is-private" href="projects/shops-onboarding.html">
                   <div class="thumb"><video autoplay loop muted playsinline preload="metadata" poster="assets/images/case-studies/shops-onboarding/cover-poster.jpg" aria-label="Adding the Facebook and Instagram app to Shopify"><source src="assets/images/case-studies/shops-onboarding/cover.webm" type="video/webm"><source src="assets/images/case-studies/shops-onboarding/cover.mp4" type="video/mp4"></video></div>
                   <div class="card-body">
-                    <h3>Shops Onboarding</h3>
+                    <h3>Shops Onboarding<span class="sr-only lock-note"> (password protected)</span></h3>
                     <p class="meta">Global stakeholder alignment in Ads Manager</p>
                   </div>
                 </a>
@@ -121,20 +111,20 @@
                     <p class="meta">Cutting regrettable churn from 27% to 8%</p>
                   </div>
                 </a>
-                <a class="work-card" href="projects/new-demand.html">
+                <a class="work-card is-private" href="projects/new-demand.html">
                   <div class="thumb"><img src="assets/images/case-studies/new-demand/cover.jpg" alt="Shopify Meta App overview with the one-click Create Ad Campaign modal"></div>
                   <div class="card-body">
-                    <h3>New Demand</h3>
+                    <h3>New Demand<span class="sr-only lock-note"> (password protected)</span></h3>
                     <p class="meta">Expanding market opportunities for merchants</p>
                   </div>
                 </a>
-                <a class="work-card" href="projects/offsite-to-onsite-migration.html">
-                    <div class="thumb"><img src="assets/images/case-studies/offsite-to-onsite-migration/04.jpg" alt="Shopify Meta App overview after the update"></div>
-                    <div class="card-body">
-                      <h3>Offsite to Onsite Migration</h3>
-                      <p class="meta">Driving $8B+ TAM growth for Shopify merchants</p>
-                    </div>
-                  </a>
+                <a class="work-card is-private" href="projects/offsite-to-onsite-migration.html">
+                  <div class="thumb"><img src="assets/images/case-studies/offsite-to-onsite-migration/04.jpg" alt="Shopify Meta App overview after the update"></div>
+                  <div class="card-body">
+                    <h3>Offsite to Onsite Migration<span class="sr-only lock-note"> (password protected)</span></h3>
+                    <p class="meta">Driving $8B+ TAM growth for Shopify merchants</p>
+                  </div>
+                </a>
                 <a class="work-card" href="projects/workflow-designer.html">
                   <div class="thumb"><img src="assets/images/workflow-designer/cover-nintex-workflow.jpg" alt="Nintex Workflow logo"></div>
                   <div class="card-body">
@@ -142,7 +132,6 @@
                     <p class="meta">Drag-and-drop workflow automation</p>
                   </div>
                 </a>
-                      </div>
               </div>
             </div>
 
@@ -314,6 +303,21 @@
       </section>
       </div>
     </section>
+  
+    <dialog class="pw-dialog" id="pwDialog" aria-labelledby="pwDialogTitle">
+      <form class="pw-dialog-form" id="pwDialogForm" autocomplete="off">
+        <p class="pw-dialog-label">Meta case study</p>
+        <h2 id="pwDialogTitle">Password required</h2>
+        <p>My Meta work is shared privately. Enter the password to read it.</p>
+        <div class="pw-row">
+          <label for="pwDialogInput" class="sr-only">Password</label>
+          <input type="password" id="pwDialogInput" name="password" placeholder="Password" autocomplete="current-password" required>
+          <button type="submit">Unlock</button>
+        </div>
+        <p class="pw-error" id="pwDialogError" role="alert"></p>
+        <button type="button" class="pw-dialog-close" id="pwDialogClose" aria-label="Close">&times;</button>
+      </form>
+    </dialog>
   </main>
 
   <footer class="site-footer">
