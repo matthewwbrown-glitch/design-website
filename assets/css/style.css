@@ -473,7 +473,8 @@ blockquote {
 
 .tab-panel .work-grid { padding: 0; }
 
-/* Case studies tab: password field and cards share one cell so the height never changes */
+/* Case studies tab: password field and cards share one cell. While locked the cards take no
+   space (on phones they stacked four tall under the form); they drop in when it unlocks. */
 .cs-stage {
   display: grid;
   grid-template-columns: minmax(0, 1fr); /* without this the column sizes to the 420px cards and overflows on phones */
@@ -494,7 +495,7 @@ blockquote {
 
 .cs-gate p { margin: 0; max-width: 34em; font-size: clamp(18px, 1.6vw, 20px); line-height: 1.5; }
 
-.cs-cards.is-locked .work-card { visibility: hidden; }
+.cs-cards.is-locked { display: none; }
 
 .is-unlocked-stage .cs-gate { visibility: hidden; pointer-events: none; }
 
